@@ -7,8 +7,8 @@
 
 <details open>
     <summary> <h2>Overview</h2> </summary>
-    For some university students, one of the biggest struggles is finding an apartment or dorm that suits their preferences. Searching here, searching there. Searching for the perfect dorm is such a challenge, especially if you don’t have much time to search. If only there was an app that eliminates the inconveniences of dorm-hunting, then that would be a game-changer.
-<br/>On that account, we introduce DormHub. With DormHub, you have the luxury of choosing the perfect dorm for you with its comprehensive list of dorms and apartments. DormHub lets you sort through options based on your preference.  Be it a single bed, a studio type, a pet-friendly space, et cetera., all the information you need is at your fingertips. DormHub, never again to stressful dorm-hunting.
+         For some university students, one of the biggest struggles is finding an apartment or dorm that suits their preferences. Searching here, searching there. Searching for the perfect dorm is such a challenge, especially if you don’t have much time to search. If only there was an app that eliminates the inconveniences of dorm-hunting, then that would be a game-changer.
+<br/>    On that account, we introduce DormHub. With DormHub, you have the luxury of choosing the perfect dorm for you with its comprehensive list of dorms and apartments. DormHub lets you sort through options based on your preference.  Be it a single bed, a studio type, a pet-friendly space, et cetera., all the information you need is at your fingertips. DormHub, never again to stressful dorm-hunting.
 </details>
 <details open>
      <summary> <h2>Features</h2> </summary>
