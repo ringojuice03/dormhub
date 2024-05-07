@@ -1,0 +1,45 @@
+/*
+Authored by: Kane Beringuela
+Company: N/A
+Project: DormHub
+
+Feature: [DHUB-001] Dorm List
+Description: Display a list of dorms.
+*/
+
+import 'package:dorm_list/pages/dormdetail_page.dart';
+import 'package:flutter/material.dart';
+import 'package:dorm_list/pages/home_page.dart';
+import 'package:dorm_list/pages/bookmark_page.dart';
+import 'package:dorm_list/pages/booking_page.dart';
+import 'package:dorm_list/pages/profile_page.dart';
+import 'package:dorm_list/pages/dormdetail_page.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'dormhub',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+      ),
+      home: const HomePage(),
+      //used to navigate between pages
+      routes: {
+        '/homepage': (context) => const HomePage(),
+        '/dorm_detail': (context) => const DormDetailPage(),
+        '/bookmark': (context) => const BookmarkPage(),
+        '/profile': (context) => const ProfilePage(),
+        '/booking': (context) => const BookingPage(),
+        '/noneyet': (context) => const Placeholder(),
+      },
+    );
+  }
+}
