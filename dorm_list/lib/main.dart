@@ -37,9 +37,21 @@ class MyApp extends StatelessWidget {
             fontStyle: FontStyle.italic,
             fontSize: 12.0,
           ),
+          displayMedium: GoogleFonts.inter(
+            fontWeight: FontWeight.w900,
+            fontSize: 24.0,
+          ),
           displayLarge: GoogleFonts.inter(
             fontWeight: FontWeight.w900,
             fontSize: 48.0,
+          ),
+          bodySmall: GoogleFonts.inter(
+            fontWeight: FontWeight.w500,
+            fontSize: 12.0,
+          ),
+          bodyMedium: GoogleFonts.inter(
+            fontWeight: FontWeight.w500,
+            fontSize: 14.0,
           ),
         ),
       ),
