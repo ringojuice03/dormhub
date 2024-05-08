@@ -10,20 +10,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
-
     //manage an array of tabs
     //used on app bar bottom in this case
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        backgroundColor: colorScheme.background,
         //function for drawer
         drawer: const NavigationDrawer(),
         //function for dorm units
         body: const ReturnTabBarView(),
         appBar: AppBar(
-          title: const Text('dormhub'),
+          title: Text('dormhub', style: Theme.of(context).textTheme.displayMedium),
           centerTitle: true,
           shadowColor: Colors.black,
           actions: <Widget>[
@@ -36,27 +33,33 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
           //manages details of the tabs
-          bottom: const TabBar(
+          bottom: TabBar(
+            indicatorColor: Color(0xFF474747),
+            labelColor: Color(0xFF474747),
+            unselectedLabelColor: Color(0xFF8C8C8C),
+            overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+            labelPadding: EdgeInsets.zero,
+
             tabs: <Widget>[
               Tab(
                 icon: Icon(Icons.door_back_door),
-                text: 'Studio',
+                child: Text('Studio', style: Theme.of(context).textTheme.bodySmall),
               ),
               Tab(
                 icon: Icon(Icons.bed_rounded),
-                text: 'Bedspace',
+                child: Text('Bedspace', style: Theme.of(context).textTheme.bodySmall, overflow: TextOverflow.ellipsis),
               ),
               Tab(
                 icon: Icon(Icons.bed),
-                text: 'Single',
+                child: Text('Single', style: Theme.of(context).textTheme.bodySmall),
               ),
               Tab(
                 icon: Icon(Icons.bedroom_child_sharp),
-                text: 'Efficiency',
+                child: Text('Efficiency', style: Theme.of(context).textTheme.bodySmall, overflow: TextOverflow.ellipsis),
               ),
               Tab(
                 icon: Icon(Icons.rounded_corner),
-                text: 'Pod',
+                child: Text('Pod', style: Theme.of(context).textTheme.bodySmall),
               ),
             ],
           ),
@@ -76,39 +79,48 @@ class NavigationDrawer extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           //header of the list view structure
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: const Text('dormhub header'),
+          Container(
+            padding: const EdgeInsets.only(top: 50, left: 25),
+            height: 90,
+            child: Text('dormhub', style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 20)),
           ),
           //similar to a button
-          ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Home'),
-            onTap: () {
-              //close drawer
-              Navigator.of(context).pop();
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
-            onTap: () {
-              Navigator.pushNamed(context, '/profile');
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.book),
-            title: const Text('Booking'),
-            onTap: () {
-              Navigator.pushNamed(context, '/booking');
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
-            onTap: () {},
+          Padding(
+            padding: EdgeInsets.only(left: 5), // Add 30 pixels of space to the left
+            child: Column(
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.home, size: 30),
+                  title: Text('Home', style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {
+                    // Close drawer
+                    Navigator.of(context).pop();
+                  },
+                ),
+                SizedBox(height: 5),
+                ListTile(
+                  leading: const Icon(Icons.person, size: 30),
+                  title: Text('Profile', style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile');
+                  },
+                ),
+                SizedBox(height: 5),
+                ListTile(
+                  leading: const Icon(Icons.book, size: 30),
+                  title: Text('Booking', style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/booking');
+                  },
+                ),
+                SizedBox(height: 5),
+                ListTile(
+                  leading: const Icon(Icons.settings, size: 30),
+                  title: Text('Settings', style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {},
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -132,8 +144,8 @@ class ReturnTabBarView extends StatelessWidget {
             return DormUnit(
               index: index,
               dormImage: 'assets/images/dorm2.png',
-              dormName: 'Dorm Name',
-              dormPrice: '1,000,000',
+              dormName: 'King Kane\'s Apartment',
+              dormPrice: '8,000',
             );
           },
         ),
@@ -144,7 +156,7 @@ class ReturnTabBarView extends StatelessWidget {
               index: index,
               dormImage: 'assets/images/dorm1.png',
               dormName: 'Bunnyland',
-              dormPrice: '999,999,999',
+              dormPrice: '13,000',
             );
           },
         ),
@@ -154,8 +166,8 @@ class ReturnTabBarView extends StatelessWidget {
             return DormUnit(
               index: index,
               dormImage: 'assets/images/dorm2.png',
-              dormName: 'Dorm Name',
-              dormPrice: '1,000,000',
+              dormName: 'Johnny\'s Paradise',
+              dormPrice: '9,500',
             );
           },
         ),
@@ -165,8 +177,8 @@ class ReturnTabBarView extends StatelessWidget {
             return DormUnit(
               index: index,
               dormImage: 'assets/images/dorm1.png',
-              dormName: 'Dorm Name',
-              dormPrice: '1,000,000',
+              dormName: 'The House of Ryan',
+              dormPrice: '15,000',
             );
           },
         ),
@@ -176,8 +188,8 @@ class ReturnTabBarView extends StatelessWidget {
             return DormUnit(
               index: index,
               dormImage: 'assets/images/dorm2.png',
-              dormName: 'Dorm Name',
-              dormPrice: '1,000,000',
+              dormName: 'Mi Casa tu Casa',
+              dormPrice: '6,000',
             );
           },
         ),
@@ -202,7 +214,7 @@ class DormUnit extends StatelessWidget {
   final String dormPrice;
 
   final snackBarMsg = const SnackBar(
-    content: Text('Pressed Bookmark'),
+    content: Text('Added to Bookmarks!'),
   );
 
   @override
@@ -219,7 +231,7 @@ class DormUnit extends StatelessWidget {
               height: MediaQuery.of(context).size.width * 0.875,
               width: MediaQuery.of(context).size.width * 0.875,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(11),
                 image: DecorationImage(
                   //dorm image
                   image: AssetImage(dormImage),
@@ -234,32 +246,35 @@ class DormUnit extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: Column(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //dorm name
-                    Text('$dormName ${index + 1}'),
-                    Text('${index + 1} beds available'),
+                    Text('$dormName', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700)),
+                    Text('${index + 1} beds available', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700, color: Color.fromARGB(255, 160, 160, 160))),
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     //price
-                    Text('₱$dormPrice'),
-                    Icon(Icons.star),
+                    Text('₱$dormPrice', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700)),
+                    Row(
+                      children: [
+                        Text('9.5'),
+                        SizedBox(width: 5),
+                        Icon(Icons.star, size: 18),
+                      ],
+                    ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
