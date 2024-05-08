@@ -8,12 +8,14 @@ Description: Display a list of dorms.
 */
 
 import 'package:dorm_list/pages/dormdetail_page.dart';
+import 'package:dorm_list/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dorm_list/pages/home_page.dart';
 import 'package:dorm_list/pages/bookmark_page.dart';
 import 'package:dorm_list/pages/booking_page.dart';
 import 'package:dorm_list/pages/profile_page.dart';
 import 'package:dorm_list/pages/dormdetail_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,13 +26,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'dormhub',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF474747)),
+        textTheme: TextTheme(
+          displaySmall: GoogleFonts.inter(
+            fontStyle: FontStyle.italic,
+            fontSize: 12.0,
+          ),
+          displayLarge: GoogleFonts.inter(
+            fontWeight: FontWeight.w900,
+            fontSize: 48.0,
+          ),
+        ),
       ),
-      home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
       //used to navigate between pages
       routes: {
         '/homepage': (context) => const HomePage(),
