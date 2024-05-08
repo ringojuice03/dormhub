@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           ),
           displayMedium: GoogleFonts.inter(
             fontWeight: FontWeight.w900,
-            fontSize: 24.0,
+            fontSize: 18.0,
           ),
           displayLarge: GoogleFonts.inter(
             fontWeight: FontWeight.w900,
