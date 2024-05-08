@@ -23,6 +23,5 @@
     
 1. Clone the repository to your local machine.
 2. Install the necessary dependencies.
-3. Set up the database and configure environment variables.
-4. Run the application locally.
+3. Run the application locally.
 </details>
