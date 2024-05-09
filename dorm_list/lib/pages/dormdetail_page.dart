@@ -179,13 +179,15 @@ class Checkout extends StatelessWidget {
               style: TextButton.styleFrom(
                 backgroundColor: Color(0xFF474747),
                 foregroundColor: Colors.white,
-                minimumSize: Size(180, 52),
+                minimumSize: Size(190, 52),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(11),
                 ),
               ),
-              onPressed: () {},
-              child: Text('Check Availability', style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600)),
+              onPressed: () {
+                Navigator.pushNamed(context, '/booking');
+              },
+              child: Text('Check Availability', style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600, fontSize: 16)),
             ),
           ],
         ),
