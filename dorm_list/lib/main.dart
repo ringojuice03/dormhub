@@ -50,8 +50,12 @@ class MyApp extends StatelessWidget {
             fontSize: 12.0,
           ),
           bodyMedium: GoogleFonts.inter(
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
             fontSize: 14.0,
+          ),
+          bodyLarge: GoogleFonts.inter(
+            fontWeight: FontWeight.w600,
+            fontSize: 22.0,
           ),
         ),
       ),
