@@ -39,7 +39,6 @@ class _MyHomePageState extends State<DormDetailPage>
               thickness: 1,
               indent: 27,
               endIndent: 27,
-              color: Colors.black,
             ),
             const SizedBox(height: 18),
             Container(
@@ -100,7 +99,6 @@ class _MyHomePageState extends State<DormDetailPage>
               thickness: 1,
               indent: 27,
               endIndent: 27,
-              color: Colors.black,
             ),
             SizedBox(height: 18),
             OwnerContact(), // Contact owner button
@@ -110,7 +108,6 @@ class _MyHomePageState extends State<DormDetailPage>
               thickness: 1,
               indent: 27,
               endIndent: 27,
-              color: Colors.black,
             ),
             SizedBox(height: 18),
             Map(), // Map proximity container
@@ -120,7 +117,6 @@ class _MyHomePageState extends State<DormDetailPage>
               thickness: 1,
               indent: 27,
               endIndent: 27,
-              color: Colors.black,
             ),
             SizedBox(height: 18),
             Reviews(
@@ -181,7 +177,7 @@ class Checkout extends StatelessWidget {
             SizedBox(width: 92),
             TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: Colors.black87,
+                backgroundColor: Color(0xFF474747),
                 foregroundColor: Colors.white,
                 minimumSize: Size(180, 52),
                 shape: RoundedRectangleBorder(
@@ -262,7 +258,7 @@ class Map extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11),
             border: Border.all(
-              color: Colors.black,
+              color: Color(0xFF474747),
               width: 1,
             ),
           ),
@@ -297,7 +293,7 @@ class OwnerContact extends StatelessWidget {
         child: IntrinsicWidth(
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.black87,
+              foregroundColor: Color(0xFF474747),
               minimumSize: Size(200, 85),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(11),
@@ -307,7 +303,7 @@ class OwnerContact extends StatelessWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.black,
+                  backgroundColor: Color(0xFF474747),
                   radius: 26,
                 ),
                 SizedBox(
@@ -418,7 +414,7 @@ class Review1 extends StatelessWidget {
               width: 27,
             ),
             const CircleAvatar(
-              backgroundColor: Colors.black,
+              backgroundColor: Color(0xFF474747),
               radius: 26,
             ),
             SizedBox(width: 15),
