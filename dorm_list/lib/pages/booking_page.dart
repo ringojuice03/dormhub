@@ -106,6 +106,7 @@ class BookingPageState extends State<BookingPage> {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(20),
@@ -129,89 +130,24 @@ class BookingPageState extends State<BookingPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Bedspacer#1',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 11),
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700),
                         ),
-                        const Text(
-                          '1234 Diaz St., Sta. Cruz',
-                          style: TextStyle(fontSize: 10, color: Colors.grey),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 8, 10, 8),
+                          child: AutoSizeText(
+                            '1234 Diaz St., Sta. Cruz',
+                            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Color.fromARGB(255, 145, 145, 145)),
+                          ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 8, 10, 8),
                           child: AutoSizeText(
                               'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                              style: TextStyle(fontSize: 10)),
+                              style: Theme.of(context).textTheme.bodySmall),
                         ),
-                        Row(
-                          children: [
-                            Container(
-                              width: 120,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(8))),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: ClipOval(
-                                      child: SizedBox.fromSize(
-                                        size: const Size.fromRadius(12),
-                                        child: Image.asset(
-                                            'assets/images/profile_pictures1.jpg'),
-                                      ),
-                                    ),
-                                  ),
-                                  const Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Larry Amet',
-                                        style: TextStyle(
-                                            fontSize: 5,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        'Hosting Since 2010',
-                                        style: TextStyle(fontSize: 5),
-                                      ),
-                                      Text(
-                                        'Owner',
-                                        style: TextStyle(fontSize: 5),
-                                      )
-                                    ],
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Icon(
-                                      Icons.mode_comment,
-                                      color: Colors.grey,
-                                      size: 12,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-                              child: Container(
-                                child: const Icon(
-                                  Icons.star,
-                                  color: Colors.grey,
-                                  size: 12,
-                                ),
-                              ),
-                            ),
-                            const Text('4.8', style: TextStyle(fontSize: 11)),
-                          ],
-                        ),
+                        
                       ],
                     ),
                   )
@@ -229,11 +165,12 @@ class BookingPageState extends State<BookingPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Guest Registration',
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                          Theme.of(context).textTheme.bodyLarge,
                     ),
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         Padding(
@@ -842,38 +779,39 @@ class BookingPageState extends State<BookingPage> {
                 endIndent: 20,
                 color: Colors.grey,
               ),
-              const Padding(
-                padding: EdgeInsets.all(20.0),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 8.0),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8.0),
                       child: Text(
                         'Total',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
+                    const SizedBox(height: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('1 month advance 2 month deposit'),
-                            Text('P4,500.00')
+                            Text('1 month advance 2 month deposit', style: Theme.of(context).textTheme.bodyMedium),
+                            Text('₱ 4,500.00', style: Theme.of(context).textTheme.bodyMedium),
                           ],
                         ),
                         Text(
                           '    x1,500.00 / month',
-                          style: TextStyle(fontSize: 10),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
+                        const SizedBox(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text('Miscellaneous'), Text('P500.00')],
+                          children: [Text('Miscellaneous', style: Theme.of(context).textTheme.bodyMedium), Text('₱ 500.00', style: Theme.of(context).textTheme.bodyMedium)],
                         ),
-                        Divider(
+                        const Divider(
                           height: 20,
                           thickness: 1,
                           indent: 175,
@@ -882,8 +820,9 @@ class BookingPageState extends State<BookingPage> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text('Total'), Text('P5,000.00')],
+                          children: [Text('Total', style: Theme.of(context).textTheme.bodyMedium), const Text('₱ 5,000.00')],
                         ),
+                        const SizedBox(height: 5),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -892,9 +831,7 @@ class BookingPageState extends State<BookingPage> {
                               children: [
                                 Text(
                                   'Price Breakdown',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.underline),
+                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(decoration: TextDecoration.underline),
                                 )
                               ],
                             )
@@ -917,79 +854,75 @@ class BookingPageState extends State<BookingPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           'Payment Method',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: SvgPicture.asset(
-                                  'assets/images/ri_visa-line.svg'),
-                              style: IconButton.styleFrom(
-                                backgroundColor: const Color(0xFFECECEC),
-                                fixedSize: const Size(110, 60),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5)),
-                              ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: SvgPicture.asset(
+                                'assets/images/ri_visa-line.svg'),
+                            style: IconButton.styleFrom(
+                              backgroundColor: const Color(0xFFECECEC),
+                              fixedSize: const Size(110, 60),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: SvgPicture.asset(
-                                  'assets/images/arcticons_gcash.svg'),
-                              style: IconButton.styleFrom(
-                                backgroundColor: const Color(0xFFECECEC),
-                                fixedSize: const Size(110, 60),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5)),
-                              ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: SvgPicture.asset(
+                                'assets/images/arcticons_gcash.svg'),
+                            style: IconButton.styleFrom(
+                              backgroundColor: const Color(0xFFECECEC),
+                              fixedSize: const Size(110, 60),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                backgroundColor: const Color(0xFFECECEC),
-                                fixedSize: const Size(110, 60),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5)),
-                              ),
-                              child: const Text(
-                                'Over the Counter',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 11),
-                              ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              backgroundColor: const Color(0xFFECECEC),
+                              fixedSize: const Size(110, 60),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                            ),
+                            child: const Text(
+                              'Over the Counter',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const Row(
+                    const SizedBox(height: 8),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           'More Options',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 10),
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(decoration: TextDecoration.underline),
                         )
                       ],
                     ),
@@ -1008,34 +941,32 @@ class BookingPageState extends State<BookingPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(0, 0, 0, 8.0),
-                          child: Text(
-                            'Cancellation Policy',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
+                        Text(
+                          'Cancellation Policy',
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ],
                     ),
-                    const Row(
+                    const SizedBox(height: 16),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         SizedBox(
                             width: 360,
                             child: AutoSizeText(
                               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum  dignissim, finibus elit a, commodo neque. Etiam id porta metus, in varius elit. Morbi efficitur purus vitae condimentum fringilla. Nullam aliquet dapibus sapien eget semper.',
-                              style: TextStyle(fontSize: 10),
+                              style: Theme.of(context).textTheme.bodyMedium,
                             )),
                       ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        const Text('I understood'),
+                        Text('I understood', style: Theme.of(context).textTheme.bodyMedium),
+                        const SizedBox(width: 5),
                         Switch(
                             value: light,
                             activeColor: Colors.green,
@@ -1061,28 +992,59 @@ class BookingPageState extends State<BookingPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'P5,000.00',
+                        const Text(
+                          '₱ 5,000.00',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
-                        Text(
-                          'One month advance and Two month deposit',
-                          style: TextStyle(fontSize: 8),
+                        SizedBox(
+                          width: 150,
+                          child: AutoSizeText(
+                            'One month advance and Two months deposit',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                         )
                       ],
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => Theme(
+                          data: ThemeData(canvasColor: Colors.white),
+                          child: AlertDialog(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                            ),
+
+                            title: Text('Congratulations!', style: Theme.of(context).textTheme.bodyLarge),
+                            content: Text('You have successfully rented this unit.', style: Theme.of(context).textTheme.bodyMedium),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, 'OK'),
+                                child: const Text('OK'),
+                                style: ButtonStyle(
+                                  foregroundColor: MaterialStateProperty.all(Color(0xFF474747)),
+                                  
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                       style: TextButton.styleFrom(
-                          fixedSize: const Size(150, 50),
-                          backgroundColor: const Color(0xFF474747)),
-                      child: const Text(
-                        'Review & Confirm',
-                        style: TextStyle(color: Colors.white),
+                        backgroundColor: const Color(0xFF474747),
+                        foregroundColor: Colors.white,
+                        minimumSize: const Size(170, 52),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(11),
+                        ),
+                      ),
+                      child: Text(
+                        'Confirm',
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w600, fontSize: 16),
                       ),
                     ),
                   ],
