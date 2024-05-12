@@ -19,33 +19,23 @@ class _BookmarkPageState extends State<BookmarkPage> {
         centerTitle: true,
         title: Text('Bookmarks'),
       ),
-      body: ListView.builder(
-        itemCount: favorites.length,
-        itemBuilder: (context, index) {
-          return DormUnit(
-            dorm: favorites[index],
-            index: index,
-            dormImage: favorites[index].imageUrl,
-            dormName: favorites[index].name,
-            dormPrice: favorites[index].price,
-            bookmarkMsg: 'Removed from bookmarks',
-          );
-        },
-      ),
-      // body: Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       const Text('Nothing here yet'),
-      //       ElevatedButton(
-      //         child: const Text('GO HOME!'),
-      //         onPressed: () {
-      //           Navigator.pushNamed(context, '/homepage');
-      //         },
-      //       ),
-      //     ],
-      //   ),
-      // ),
+      body: favorites.isEmpty
+          ? const Center(
+              child: Text('You haven\'t bookmarked any.'),
+            )
+          : ListView.builder(
+              itemCount: favorites.length,
+              itemBuilder: (context, index) {
+                return DormUnit(
+                  dorm: favorites[index],
+                  index: index,
+                  dormImage: favorites[index].imageUrl,
+                  dormName: favorites[index].name,
+                  dormPrice: favorites[index].price,
+                  bookmarkMsg: 'Removed from bookmarks',
+                );
+              },
+            ),
     );
   }
 }
