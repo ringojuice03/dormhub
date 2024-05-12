@@ -165,6 +165,8 @@ class Checkout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var currentDorm = appState.currentDorm;
     return Column(
       children: [
         SvgPicture.asset(
@@ -178,7 +180,7 @@ class Checkout extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('₱1,500', style: TextStyle(fontSize: 15)),
+                Text(currentDorm.price, style: TextStyle(fontSize: 15)),
                 Text('Base rent', style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
