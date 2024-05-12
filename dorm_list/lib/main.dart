@@ -79,6 +79,7 @@ class MyAppState extends ChangeNotifier {
     "Microwave",
     "Gym"
   ];
+  Dorm currentDorm = studios[0];
   List<Dorm> filteredDorms = [];
   List<String> tagList = [];
   List<bool> filterBool = [];
@@ -125,5 +126,11 @@ class MyAppState extends ChangeNotifier {
       favorites.add(dorm);
     }
     notifyListeners();
+  }
+
+  String isFavorite(dorm) {
+    return favorites.contains(dorm)
+        ? 'Removed from bookmarks'
+        : 'Added to bookmarks';
   }
 }

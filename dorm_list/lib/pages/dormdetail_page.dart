@@ -11,6 +11,8 @@ Description:  Easily access comprehensive details of your selected unit,
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dorm_list/main.dart';
+import 'package:provider/provider.dart';
 
 class DormDetailPage extends StatefulWidget {
   const DormDetailPage({super.key});
@@ -46,16 +48,18 @@ class _MyHomePageState extends State<DormDetailPage>
               child: TabBar(
                 controller: _tabController,
                 indicatorColor: const Color(0xFF474747),
-                labelColor:  const Color(0xFF474747),
+                labelColor: const Color(0xFF474747),
                 unselectedLabelColor: const Color(0xFF8C8C8C),
-                overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                overlayColor:
+                    MaterialStateProperty.all<Color>(Colors.transparent),
                 tabs: [
                   Tab(
                     child: Row(
                       children: [
                         Icon(Icons.camera_alt),
                         SizedBox(width: 7),
-                        AutoSizeText('Amenities', style: Theme.of(context).textTheme.bodySmall),
+                        AutoSizeText('Amenities',
+                            style: Theme.of(context).textTheme.bodySmall),
                       ],
                     ),
                   ),
@@ -64,7 +68,8 @@ class _MyHomePageState extends State<DormDetailPage>
                       children: [
                         Icon(Icons.bolt),
                         SizedBox(width: 7),
-                        AutoSizeText('Inclusions', style: Theme.of(context).textTheme.bodySmall),
+                        AutoSizeText('Inclusions',
+                            style: Theme.of(context).textTheme.bodySmall),
                       ],
                     ),
                   ),
@@ -73,7 +78,8 @@ class _MyHomePageState extends State<DormDetailPage>
                       children: [
                         Icon(Icons.edit_note_rounded),
                         SizedBox(width: 7),
-                        AutoSizeText('Policies', style: Theme.of(context).textTheme.bodySmall),
+                        AutoSizeText('Policies',
+                            style: Theme.of(context).textTheme.bodySmall),
                       ],
                     ),
                   ),
@@ -137,12 +143,14 @@ class DormImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var currentDorm = appState.currentDorm;
     return ClipRect(
       child: Align(
         alignment: Alignment.center,
         heightFactor: 0.55,
         child: Image.asset(
-          'assets/images/dorm1b.jpg',
+          currentDorm.imageUrl,
           fit: BoxFit.cover,
         ),
       ),
@@ -187,7 +195,11 @@ class Checkout extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/booking');
               },
-              child: Text('Check Availability', style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600, fontSize: 16)),
+              child: Text('Check Availability',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Color(0xFFFFFFFF),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16)),
             ),
           ],
         ),
@@ -218,7 +230,8 @@ class Reviews extends StatelessWidget {
               semanticsLabel: 'Ratings',
             ),
             SizedBox(width: 3),
-            Text('based on 285 reviews', style: Theme.of(context).textTheme.bodyMedium),
+            Text('based on 285 reviews',
+                style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
         SizedBox(height: 20),
@@ -249,10 +262,13 @@ class Map extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var currentDorm = appState.currentDorm;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('You\'ll be staying here.', style: Theme.of(context).textTheme.bodyMedium),
+        Text('You\'ll be staying here.',
+            style: Theme.of(context).textTheme.bodyMedium),
         SizedBox(height: 18),
         Container(
           width: 359,
@@ -267,14 +283,17 @@ class Map extends StatelessWidget {
         ),
         SizedBox(height: 18),
         Text(
-          '1234 Diaz St., Sta. Cruz, Naga City, Camarines Sur', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700),
+          currentDorm.address,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(fontWeight: FontWeight.w700),
         ),
         Container(
           width: 359,
           child: Text(
-            'Landmarks lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum dignissim.',
-            style: Theme.of(context).textTheme.bodyMedium
-          ),
+              'Landmarks lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum dignissim.',
+              style: Theme.of(context).textTheme.bodyMedium),
         ),
       ],
     );
@@ -314,8 +333,13 @@ class OwnerContact extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Larry Amet', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600)),
-                    Text('Hosting Since 2010', style: Theme.of(context).textTheme.bodyMedium),
+                    Text('Larry Amet',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w600)),
+                    Text('Hosting Since 2010',
+                        style: Theme.of(context).textTheme.bodyMedium),
                     Text('Owner', style: Theme.of(context).textTheme.bodySmall),
                   ],
                 ),
@@ -339,6 +363,8 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var currentDorm = appState.currentDorm;
     return Column(
       children: [
         Row(
@@ -347,14 +373,17 @@ class Header extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('King Kane\'s', style: Theme.of(context).textTheme.bodyLarge),
-                Text('1234 Diaz St., Sta. Cruz', style: Theme.of(context).textTheme.bodyMedium),
+                Text(currentDorm.name,
+                    style: Theme.of(context).textTheme.bodyLarge),
+                Text(currentDorm.address,
+                    style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
             Row(
               children: [
                 Icon(Icons.star),
-                Text('4.8 of 285 Reviews', style: Theme.of(context).textTheme.bodyMedium),
+                Text('${currentDorm.rating} of ${currentDorm.reviews} Reviews',
+                    style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           ],
@@ -423,16 +452,23 @@ class Review1 extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Jose Mari Chan', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700)),
-                Text('Past Resident', style: Theme.of(context).textTheme.bodyMedium),
-                Text('2010 - 2014', style: Theme.of(context).textTheme.bodyMedium),
+                Text('Jose Mari Chan',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontWeight: FontWeight.w700)),
+                Text('Past Resident',
+                    style: Theme.of(context).textTheme.bodyMedium),
+                Text('2010 - 2014',
+                    style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
             SizedBox(width: 89),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('10 years ago', style: Theme.of(context).textTheme.bodyMedium),
+                Text('10 years ago',
+                    style: Theme.of(context).textTheme.bodyMedium),
                 SvgPicture.asset(
                   'assets/svgs/ratings_stars.svg',
                   semanticsLabel: 'Ratings',
@@ -445,9 +481,8 @@ class Review1 extends StatelessWidget {
         Container(
           width: 359,
           child: Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum  dignissim, finibus elit a, commodo neque. Etiam id porta metus, in varius elit. Morbi efficitur purus vitae condimentum fringilla. Nullam aliquet dapibus sapien eget semper.',
-            style: Theme.of(context).textTheme.bodyMedium
-          ),
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum  dignissim, finibus elit a, commodo neque. Etiam id porta metus, in varius elit. Morbi efficitur purus vitae condimentum fringilla. Nullam aliquet dapibus sapien eget semper.',
+              style: Theme.of(context).textTheme.bodyMedium),
         ),
       ],
     );

@@ -268,10 +268,6 @@ class ReturnTabBarView extends StatelessWidget {
               return DormUnit(
                 dorm: filteredDorms[index],
                 index: index,
-                dormImage: filteredDorms[index].imageUrl,
-                dormName: filteredDorms[index].name,
-                dormPrice: filteredDorms[index].price,
-                bookmarkMsg: 'Added to bookmarks!',
               );
             },
           );
@@ -287,24 +283,16 @@ class DormUnit extends StatelessWidget {
     super.key,
     required this.dorm,
     required this.index,
-    required this.dormImage,
-    required this.dormName,
-    required this.dormPrice,
-    required this.bookmarkMsg,
   });
 
   final Dorm dorm;
   final int index;
-  final String dormImage;
-  final String dormName;
-  final String dormPrice;
-  final String bookmarkMsg;
 
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     var snackBarMsg = SnackBar(
-      content: Text(bookmarkMsg),
+      content: Text(appState.isFavorite(dorm)),
     );
     return Padding(
       padding: const EdgeInsets.fromLTRB(25, 12.5, 25, 12.5),
@@ -312,6 +300,7 @@ class DormUnit extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
+              appState.currentDorm = dorm;
               Navigator.pushNamed(context, '/dorm_detail');
             },
             child: Ink(
@@ -321,7 +310,7 @@ class DormUnit extends StatelessWidget {
                 borderRadius: BorderRadius.circular(11),
                 image: DecorationImage(
                   //dorm image
-                  image: AssetImage(dormImage),
+                  image: AssetImage(dorm.imageUrl),
                 ),
               ),
               child: ListTile(
@@ -344,7 +333,7 @@ class DormUnit extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //dorm name
-                    Text('$dormName',
+                    Text('${dorm.name}',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -359,14 +348,14 @@ class DormUnit extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     //price
-                    Text('₱$dormPrice',
+                    Text('₱${dorm.price}',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
                             .copyWith(fontWeight: FontWeight.w700)),
                     Row(
                       children: [
-                        Text('9.5'),
+                        Text(dorm.rating),
                         SizedBox(width: 5),
                         Icon(Icons.star, size: 18),
                       ],
