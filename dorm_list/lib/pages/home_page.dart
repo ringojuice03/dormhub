@@ -8,7 +8,6 @@ Description: Display a list of dorms.
 */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:dorm_list/main.dart';
 import 'package:dorm_list/dorms.dart';
@@ -98,8 +97,8 @@ class _HomePageState extends State<HomePage> {
                     alignment: WrapAlignment.center,
                     children: List.generate(filterChips.length, (index) {
                       return ChoiceChip(
-                        labelPadding: EdgeInsets.all(0),
-                        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        labelPadding: const EdgeInsets.all(0),
+                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         selectedColor: Colors.black.withOpacity(0.2),
                         selected: filterBool[index],
                         onSelected: (newBoolValue) {
@@ -110,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         label: Text(
                           filterChips[index],
-                          style: TextStyle(fontSize: 10),
+                          style: const TextStyle(fontSize: 10),
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
@@ -120,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                     }),
                   ),
                 },
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 //bottom tabs
                 Material(
                   elevation: 0.5,
@@ -135,37 +134,37 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     child: TabBar(
-                      indicatorColor: Color(0xFF474747),
-                      labelColor: Color(0xFF474747),
-                      unselectedLabelColor: Color(0xFF8C8C8C),
+                      indicatorColor: const Color(0xFF474747),
+                      labelColor: const Color(0xFF474747),
+                      unselectedLabelColor: const Color(0xFF8C8C8C),
                       overlayColor:
                           MaterialStateProperty.all<Color>(Colors.transparent),
                       labelPadding: EdgeInsets.zero,
                       tabs: <Widget>[
                         Tab(
-                          icon: Icon(Icons.door_back_door),
+                          icon: const Icon(Icons.door_back_door),
                           child: Text('Studio',
                               style: Theme.of(context).textTheme.bodySmall),
                         ),
                         Tab(
-                          icon: Icon(Icons.bed_rounded),
+                          icon: const Icon(Icons.bed_rounded),
                           child: Text('Bedspace',
                               style: Theme.of(context).textTheme.bodySmall,
                               overflow: TextOverflow.ellipsis),
                         ),
                         Tab(
-                          icon: Icon(Icons.bed),
+                          icon: const Icon(Icons.bed),
                           child: Text('Single',
                               style: Theme.of(context).textTheme.bodySmall),
                         ),
                         Tab(
-                          icon: Icon(Icons.bedroom_child_sharp),
+                          icon: const Icon(Icons.bedroom_child_sharp),
                           child: Text('Efficiency',
                               style: Theme.of(context).textTheme.bodySmall,
                               overflow: TextOverflow.ellipsis),
                         ),
                         Tab(
-                          icon: Icon(Icons.rounded_corner),
+                          icon: const Icon(Icons.rounded_corner),
                           child: Text('Pod',
                               style: Theme.of(context).textTheme.bodySmall),
                         ),
@@ -204,7 +203,7 @@ class NavigationDrawer extends StatelessWidget {
           //similar to a button
           Padding(
             padding:
-                EdgeInsets.only(left: 5), // Add 30 pixels of space to the left
+                const EdgeInsets.only(left: 5), // Add 30 pixels of space to the left
             child: Column(
               children: [
                 ListTile(
@@ -216,7 +215,7 @@ class NavigationDrawer extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 ListTile(
                   leading: const Icon(Icons.person, size: 30),
                   title: Text('Profile',
@@ -225,7 +224,7 @@ class NavigationDrawer extends StatelessWidget {
                     Navigator.pushNamed(context, '/profile');
                   },
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 ListTile(
                   leading: const Icon(Icons.book, size: 30),
                   title: Text('Booking',
@@ -234,7 +233,7 @@ class NavigationDrawer extends StatelessWidget {
                     Navigator.pushNamed(context, '/booking');
                   },
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 ListTile(
                   leading: const Icon(Icons.settings, size: 30),
                   title: Text('Settings',
@@ -330,7 +329,7 @@ class DormUnit extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(snackBarMsg);
                     appState.pressedFavorite(dorm);
                   },
-                  child: Icon(Icons.bookmark_border_outlined),
+                  child: const Icon(Icons.bookmark_border_outlined),
                 ),
               ),
             ),
@@ -352,7 +351,7 @@ class DormUnit extends StatelessWidget {
                     Text('${index + 1} beds available',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.w700,
-                            color: Color.fromARGB(255, 160, 160, 160))),
+                            color: const Color.fromARGB(255, 160, 160, 160))),
                   ],
                 ),
                 Column(
@@ -364,7 +363,7 @@ class DormUnit extends StatelessWidget {
                             .textTheme
                             .bodyMedium!
                             .copyWith(fontWeight: FontWeight.w700)),
-                    Row(
+                    const Row(
                       children: [
                         Text('9.5'),
                         SizedBox(width: 5),
