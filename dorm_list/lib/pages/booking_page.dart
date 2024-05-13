@@ -150,6 +150,8 @@ class BookingPageState extends State<BookingPage> {
                                 .bodySmall!
                                 .copyWith(
                                     color: Color.fromARGB(255, 145, 145, 145)),
+                            '1234 Diaz St., Sta. Cruz',
+                            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromARGB(255, 145, 145, 145)),
                           ),
                         ),
                         Padding(
@@ -179,7 +181,7 @@ class BookingPageState extends State<BookingPage> {
                       'Guest Registration',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
                         Padding(
@@ -1059,6 +1061,7 @@ class BookingPageState extends State<BookingPage> {
                                 style: ButtonStyle(
                                   foregroundColor: MaterialStateProperty.all(
                                       Color(0xFF474747)),
+                                  foregroundColor: MaterialStateProperty.all(const Color(0xFF474747)),
                                 ),
                               ),
                             ],

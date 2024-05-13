@@ -82,12 +82,44 @@ class _MyHomePageState extends State<DormDetailPage>
                             style: Theme.of(context).textTheme.bodySmall),
                       ],
                     ),
+            TabBar(
+              controller: _tabController,
+              indicatorColor: const Color(0xFF474747),
+              labelColor:  const Color(0xFF474747),
+              unselectedLabelColor: const Color(0xFF8C8C8C),
+              overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+              tabs: [
+                Tab(
+                  child: Row(
+                    children: [
+                      const Icon(Icons.camera_alt),
+                      const SizedBox(width: 7),
+                      AutoSizeText('Amenities', style: Theme.of(context).textTheme.bodySmall),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                Tab(
+                  child: Row(
+                    children: [
+                      const Icon(Icons.bolt),
+                      const SizedBox(width: 7),
+                      AutoSizeText('Inclusions', style: Theme.of(context).textTheme.bodySmall),
+                    ],
+                  ),
+                ),
+                Tab(
+                  child: Row(
+                    children: [
+                      const Icon(Icons.edit_note_rounded),
+                      const SizedBox(width: 7),
+                      AutoSizeText('Policies', style: Theme.of(context).textTheme.bodySmall),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            Container(
+            const SizedBox(height: 20),
+            SizedBox(
               // Dorm offers contents
               width: double.maxFinite,
               height: 250,
@@ -106,29 +138,29 @@ class _MyHomePageState extends State<DormDetailPage>
               indent: 27,
               endIndent: 27,
             ),
-            SizedBox(height: 18),
-            OwnerContact(), // Contact owner button
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
+            const OwnerContact(), // Contact owner button
+            const SizedBox(height: 18),
             const Divider(
               height: 8,
               thickness: 1,
               indent: 27,
               endIndent: 27,
             ),
-            SizedBox(height: 18),
-            Map(), // Map proximity container
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
+            const Map(), // Map proximity container
+            const SizedBox(height: 18),
             const Divider(
               height: 8,
               thickness: 1,
               indent: 27,
               endIndent: 27,
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Reviews(
                 tabController: _tabController), // Reviews overview dashboard
-            Checkout(), // Proceed to billing
-            SizedBox(height: 33),
+            const Checkout(), // Proceed to billing
+            const SizedBox(height: 33),
           ],
         ),
       ),
@@ -173,7 +205,7 @@ class Checkout extends StatelessWidget {
           'assets/svgs/horizontal.svg',
           semanticsLabel: 'Horizontal',
         ),
-        SizedBox(height: 13),
+        const SizedBox(height: 13),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -184,12 +216,12 @@ class Checkout extends StatelessWidget {
                 Text('Base rent', style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
-            SizedBox(width: 92),
+            const SizedBox(width: 92),
             TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: Color(0xFF474747),
+                backgroundColor: const Color(0xFF474747),
                 foregroundColor: Colors.white,
-                minimumSize: Size(190, 52),
+                minimumSize: const Size(190, 52),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(11),
                 ),
@@ -202,6 +234,7 @@ class Checkout extends StatelessWidget {
                       color: Color(0xFFFFFFFF),
                       fontWeight: FontWeight.w600,
                       fontSize: 16)),
+              child: Text('Check Availability', style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w600, fontSize: 16)),
             ),
           ],
         ),
@@ -224,9 +257,9 @@ class Reviews extends StatelessWidget {
       children: [
         Row(
           children: [
-            SizedBox(width: 27),
-            Text('4.8'),
-            SizedBox(width: 3),
+            const SizedBox(width: 27),
+            const Text('4.8'),
+            const SizedBox(width: 3),
             SvgPicture.asset(
               'assets/svgs/ratings_stars.svg',
               semanticsLabel: 'Ratings',
@@ -234,10 +267,12 @@ class Reviews extends StatelessWidget {
             SizedBox(width: 3),
             Text('based on 285 reviews',
                 style: Theme.of(context).textTheme.bodyMedium),
+            const SizedBox(width: 3),
+            Text('based on 285 reviews', style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
-        SizedBox(height: 20),
-        Container(
+        const SizedBox(height: 20),
+        SizedBox(
           width: double.maxFinite,
           height: 220,
           child: TabBarView(
@@ -249,9 +284,9 @@ class Reviews extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 33),
+        const SizedBox(height: 33),
         Text('[1 / 100]', style: Theme.of(context).textTheme.bodySmall),
-        SizedBox(height: 47),
+        const SizedBox(height: 47),
       ],
     );
   }
@@ -272,18 +307,20 @@ class Map extends StatelessWidget {
         Text('You\'ll be staying here.',
             style: Theme.of(context).textTheme.bodyMedium),
         SizedBox(height: 18),
+        Text('You\'ll be staying here.', style: Theme.of(context).textTheme.bodyMedium),
+        const SizedBox(height: 18),
         Container(
           width: 359,
           height: 209,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11),
             border: Border.all(
-              color: Color(0xFF474747),
+              color: const Color(0xFF474747),
               width: 1,
             ),
           ),
         ),
-        SizedBox(height: 18),
+        const SizedBox(height: 18),
         Text(
           currentDorm.address,
           style: Theme.of(context)
@@ -291,7 +328,7 @@ class Map extends StatelessWidget {
               .bodyMedium!
               .copyWith(fontWeight: FontWeight.w700),
         ),
-        Container(
+        SizedBox(
           width: 359,
           child: Text(
               'Landmarks lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum dignissim.',
@@ -316,8 +353,8 @@ class OwnerContact extends StatelessWidget {
         child: IntrinsicWidth(
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-              foregroundColor: Color(0xFF474747),
-              minimumSize: Size(200, 85),
+              foregroundColor: const Color(0xFF474747),
+              minimumSize: const Size(200, 85),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(11),
               ),
@@ -325,13 +362,11 @@ class OwnerContact extends StatelessWidget {
             onPressed: () {},
             child: Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundColor: Color(0xFF474747),
                   radius: 26,
                 ),
-                SizedBox(
-                  width: 15,
-                ),
+                const SizedBox(width: 15,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -345,10 +380,10 @@ class OwnerContact extends StatelessWidget {
                     Text('Owner', style: Theme.of(context).textTheme.bodySmall),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
-                Icon(Icons.chat_bubble, size: 35),
+                const Icon(Icons.chat_bubble, size: 35),
               ],
             ),
           ),
@@ -386,41 +421,43 @@ class Header extends StatelessWidget {
                 Icon(Icons.star),
                 Text('${currentDorm.rating} of ${currentDorm.reviews} Reviews',
                     style: Theme.of(context).textTheme.bodyMedium),
+                const Icon(Icons.star),
+                Text('4.8 of 285 Reviews', style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           ],
         ),
-        SizedBox(height: 18),
+        const SizedBox(height: 18),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 31),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Icon(Icons.bed),
+              const Icon(Icons.bed),
               AutoSizeText('Comfiy',
                   style: Theme.of(context).textTheme.bodySmall,
                   overflow: TextOverflow.ellipsis),
-              Text('-'),
-              Icon(Icons.bed),
+              const Text('-'),
+              const Icon(Icons.bed),
               AutoSizeText('Comfiy',
                   style: Theme.of(context).textTheme.bodySmall,
                   overflow: TextOverflow.ellipsis),
-              Text('-'),
-              Icon(Icons.bed),
+              const Text('-'),
+              const Icon(Icons.bed),
               AutoSizeText('Comfiy',
                   style: Theme.of(context).textTheme.bodySmall,
                   overflow: TextOverflow.ellipsis),
-              Text('-'),
-              Icon(Icons.bed),
+              const Text('-'),
+              const Icon(Icons.bed),
               AutoSizeText('Comfiy',
                   style: Theme.of(context).textTheme.bodySmall,
                   overflow: TextOverflow.ellipsis),
             ],
           ),
         ),
-        SizedBox(height: 18),
+        const SizedBox(height: 18),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 27),
+          padding: const EdgeInsets.symmetric(horizontal: 27),
           child: Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum dignissim, finibus elit a, commodo neque. Etiam id porta metus, in varius elit. Morbi efficitur purus vitae condimentum fringilla. Nullam aliquet dapibus sapien eget semper.',
             textAlign: TextAlign.justify,
@@ -450,7 +487,7 @@ class Review1 extends StatelessWidget {
               backgroundColor: Color(0xFF474747),
               radius: 26,
             ),
-            SizedBox(width: 15),
+            const SizedBox(width: 15),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -465,7 +502,7 @@ class Review1 extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
-            SizedBox(width: 89),
+            const SizedBox(width: 89),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -479,8 +516,8 @@ class Review1 extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 18),
-        Container(
+        const SizedBox(height: 18),
+        SizedBox(
           width: 359,
           child: Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum  dignissim, finibus elit a, commodo neque. Etiam id porta metus, in varius elit. Morbi efficitur purus vitae condimentum fringilla. Nullam aliquet dapibus sapien eget semper.',
@@ -505,17 +542,17 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 30),
+                  padding: const EdgeInsets.only(left: 30),
                   child: Row(
                     children: [
                       SvgPicture.asset(
                         'assets/svgs/bunk_bed.svg',
                         semanticsLabel: 'Bunk Bed',
                       ),
-                      SizedBox(width: 11),
-                      Text('Bunk Bed'),
+                      const SizedBox(width: 11),
+                      const Text('Bunk Bed'),
                     ],
                   ),
                 ),
@@ -523,15 +560,15 @@ class AmenitiesTable extends StatelessWidget {
             ),
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     SvgPicture.asset(
                       'assets/svgs/washing_machine.svg',
                       semanticsLabel: 'Washing Machine',
                     ),
-                    SizedBox(width: 11),
-                    Text('Washing Machine'),
+                    const SizedBox(width: 11),
+                    const Text('Washing Machine'),
                   ],
                 ),
               ),
@@ -542,17 +579,17 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 30),
+                  padding: const EdgeInsets.only(left: 30),
                   child: Row(
                     children: [
                       SvgPicture.asset(
                         'assets/svgs/desk.svg',
                         semanticsLabel: 'Desk',
                       ),
-                      SizedBox(width: 11),
-                      Text('Desk'),
+                      const SizedBox(width: 11),
+                      const Text('Desk'),
                     ],
                   ),
                 ),
@@ -560,15 +597,15 @@ class AmenitiesTable extends StatelessWidget {
             ),
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     SvgPicture.asset(
                       'assets/svgs/gym.svg',
                       semanticsLabel: 'gym',
                     ),
-                    SizedBox(width: 11),
-                    Text('Gym'),
+                    const SizedBox(width: 11),
+                    const Text('Gym'),
                   ],
                 ),
               ),
@@ -579,17 +616,17 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 30),
+                  padding: const EdgeInsets.only(left: 30),
                   child: Row(
                     children: [
                       SvgPicture.asset(
                         'assets/svgs/shared_bath.svg',
                         semanticsLabel: 'Shared Bathroom',
                       ),
-                      SizedBox(width: 11),
-                      Text('Shared Bath'),
+                      const SizedBox(width: 11),
+                      const Text('Shared Bath'),
                     ],
                   ),
                 ),
@@ -597,15 +634,15 @@ class AmenitiesTable extends StatelessWidget {
             ),
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     SvgPicture.asset(
                       'assets/svgs/parking_space.svg',
                       semanticsLabel: 'Parking Space',
                     ),
-                    SizedBox(width: 11),
-                    Text('Parking Space'),
+                    const SizedBox(width: 11),
+                    const Text('Parking Space'),
                   ],
                 ),
               ),
@@ -616,17 +653,17 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 30),
+                  padding: const EdgeInsets.only(left: 30),
                   child: Row(
                     children: [
                       SvgPicture.asset(
                         'assets/svgs/shared_kitchen.svg',
                         semanticsLabel: 'Shared Kitchen',
                       ),
-                      SizedBox(width: 11),
-                      Text('Shared Kitchen'),
+                      const SizedBox(width: 11),
+                      const Text('Shared Kitchen'),
                     ],
                   ),
                 ),
@@ -634,15 +671,15 @@ class AmenitiesTable extends StatelessWidget {
             ),
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     SvgPicture.asset(
                       'assets/svgs/security_personnel.svg',
                       semanticsLabel: 'Security Personnel',
                     ),
-                    SizedBox(width: 11),
-                    Text('Security Personnel'),
+                    const SizedBox(width: 11),
+                    const Text('Security Personnel'),
                   ],
                 ),
               ),
@@ -653,17 +690,17 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 30),
+                  padding: const EdgeInsets.only(left: 30),
                   child: Row(
                     children: [
                       SvgPicture.asset(
                         'assets/svgs/refrigerator.svg',
                         semanticsLabel: 'Refrigerator',
                       ),
-                      SizedBox(width: 11),
-                      Text('Refrigerator'),
+                      const SizedBox(width: 11),
+                      const Text('Refrigerator'),
                     ],
                   ),
                 ),
@@ -671,15 +708,15 @@ class AmenitiesTable extends StatelessWidget {
             ),
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     SvgPicture.asset(
                       'assets/svgs/surveillance_camera.svg',
                       semanticsLabel: 'Surveillance Camera',
                     ),
-                    SizedBox(width: 11),
-                    Text('Surveillance Camera'),
+                    const SizedBox(width: 11),
+                    const Text('Surveillance Camera'),
                   ],
                 ),
               ),
@@ -690,17 +727,17 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 30),
+                  padding: const EdgeInsets.only(left: 30),
                   child: Row(
                     children: [
                       SvgPicture.asset(
                         'assets/svgs/microwave.svg',
                         semanticsLabel: 'Microwave',
                       ),
-                      SizedBox(width: 11),
-                      Text('Microwave'),
+                      const SizedBox(width: 11),
+                      const Text('Microwave'),
                     ],
                   ),
                 ),
@@ -708,15 +745,15 @@ class AmenitiesTable extends StatelessWidget {
             ),
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     SvgPicture.asset(
                       'assets/svgs/rooftop_terrace.svg',
                       semanticsLabel: 'Rooftop Terrace',
                     ),
-                    SizedBox(width: 11),
-                    Text('Rooftop Terrace'),
+                    const SizedBox(width: 11),
+                    const Text('Rooftop Terrace'),
                   ],
                 ),
               ),

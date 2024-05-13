@@ -17,7 +17,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Bookmarks'),
+        title: const Text('Bookmarks'),
       ),
       body: favorites.isEmpty
           ? const Center(
