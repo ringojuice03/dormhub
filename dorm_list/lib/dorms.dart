@@ -5,10 +5,11 @@ class Dorm {
   final String address;
   final String rating;
   final String reviews;
+  bool bBool;
   final List<String> tags;
 
   Dorm(this.imageUrl, this.name, this.price, this.address, this.rating,
-      this.reviews, this.tags);
+      this.reviews, this.tags, this.bBool);
 }
 
 List<List<Dorm>> dormList = [
@@ -28,6 +29,7 @@ List<Dorm> studios = [
     '4.5',
     '245',
     ['Refrigerator', 'Microwave', 'Gym'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -37,6 +39,7 @@ List<Dorm> studios = [
     '4.5',
     '245',
     ['Bunk bed'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm1.png',
@@ -46,6 +49,7 @@ List<Dorm> studios = [
     '4.5',
     '245',
     ['Refrigerator', 'Microwave'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -55,6 +59,7 @@ List<Dorm> studios = [
     '4.5',
     '245',
     ['Desk'],
+    false,
   ),
 ];
 
@@ -67,6 +72,7 @@ List<Dorm> bedspaces = [
     '4.5',
     '245',
     ['Refrigerator', 'Microwave', 'Gym'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -76,6 +82,7 @@ List<Dorm> bedspaces = [
     '4.5',
     '245',
     ['Bunk bed'],
+    false,
   ),
 ];
 
@@ -88,6 +95,7 @@ List<Dorm> singles = [
     '4.5',
     '245',
     ['Refrigerator', 'Microwave', 'Gym'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -97,6 +105,7 @@ List<Dorm> singles = [
     '4.5',
     '245',
     ['Bunk bed'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm1.png',
@@ -106,6 +115,7 @@ List<Dorm> singles = [
     '4.5',
     '245',
     ['Refrigerator', 'Microwave'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -115,6 +125,7 @@ List<Dorm> singles = [
     '4.5',
     '245',
     ['Desk'],
+    false,
   ),
 ];
 
@@ -127,6 +138,7 @@ List<Dorm> efficiencies = [
     '4.5',
     '245',
     ['Refrigerator', 'Microwave', 'Gym'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -136,6 +148,7 @@ List<Dorm> efficiencies = [
     '4.5',
     '245',
     ['Desk'],
+    false,
   ),
 ];
 
@@ -148,6 +161,7 @@ List<Dorm> pods = [
     '4.5',
     '245',
     ['Refrigerator', 'Microwave'],
+    false,
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -157,5 +171,6 @@ List<Dorm> pods = [
     '4.5',
     '245',
     ['Desk'],
+    false,
   ),
 ];
