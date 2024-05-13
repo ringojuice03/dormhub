@@ -284,7 +284,7 @@ class ReturnTabBarView extends StatelessWidget {
 
 //utility class for dorm units
 class DormUnit extends StatefulWidget {
-  DormUnit({
+  const DormUnit({
     super.key,
     required this.dorm,
     required this.index,
@@ -344,7 +344,7 @@ class _DormUnitState extends State<DormUnit> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //dorm name
-                    Text('${widget.dorm.name}',
+                    Text(widget.dorm.name,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -367,8 +367,8 @@ class _DormUnitState extends State<DormUnit> {
                     Row(
                       children: [
                         Text(widget.dorm.rating),
-                        SizedBox(width: 5),
-                        Icon(Icons.star, size: 18),
+                        const SizedBox(width: 5),
+                        const Icon(Icons.star, size: 18),
                       ],
                     ),
                   ],
