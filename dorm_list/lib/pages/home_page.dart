@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool fBool = true;
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -74,19 +75,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const SizedBox(width: 20),
                       //filter button
-                      InkWell(
-                        onTap: () => setState(() {
+                      ElevatedButton(
+                        onPressed: () => setState(() {
+                          fBool = !fBool;
                           appState.toggleFilter();
-                        }),
-                        child: Container(
-                          width: 60,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: const Icon(Icons.flutter_dash),
+                        }), 
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: fBool ? Colors.white : const Color(0xFF474747),
+                          foregroundColor: fBool ? const Color(0xFF474747) : Colors.white,
+                          minimumSize: const Size(58, 52),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(11),
+                          )
                         ),
+                        child: const Icon(Icons.flutter_dash),
                       ),
                     ],
                   ),
