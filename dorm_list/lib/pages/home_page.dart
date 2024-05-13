@@ -40,11 +40,14 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           shadowColor: Colors.black,
           actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.bookmark),
-              onPressed: () {
-                Navigator.pushNamed(context, '/bookmark');
-              },
+            Padding(
+              padding: const EdgeInsets.only(right: 18.0),
+              child: IconButton(
+                icon: const Icon(Icons.bookmark),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/bookmark');
+                },
+              ),
             ),
           ],
           bottom: PreferredSize(
@@ -75,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 20),
+                      const SizedBox(width: 12),
                       //filter button
                       ElevatedButton(
                         onPressed: () => setState(() {
@@ -95,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   //filter choices
-                  if (appState.isFilterPressed) ...{
+                  if (appState.isFilterPressed) ... {
                     Wrap(
                       direction: Axis.horizontal,
                       spacing: 10,
@@ -103,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                       children: List.generate(filterChips.length, (index) {
                         return ChoiceChip(
                           labelPadding: const EdgeInsets.all(0),
-                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
                           selectedColor: Colors.black.withOpacity(0.2),
                           selected: filterBool[index],
                           onSelected: (newBoolValue) {
@@ -330,7 +333,12 @@ class _DormUnitState extends State<DormUnit> {
                     appState.pressedFavorite(widget.dorm);
                     widget.dorm.bBool = !widget.dorm.bBool;
                   },
-                  child: widget.dorm.bBool ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border_outlined),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 16),
+                      widget.dorm.bBool ? const Icon(Icons.bookmark, size: 40) : const Opacity(opacity: 0.5, child: Icon(Icons.bookmark_border_outlined, size: 40)),
+                    ],
+                  ),
                 ),
               ),
             ),
