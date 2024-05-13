@@ -498,229 +498,168 @@ class AmenitiesTable extends StatelessWidget {
     return Table(
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       children: [
-        TableRow(
+        const TableRow(
           children: [
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/svgs/bunk_bed.svg',
-                        semanticsLabel: 'Bunk Bed',
-                      ),
-                      const SizedBox(width: 11),
-                      const Text('Bunk Bed'),
-                    ],
-                  ),
-                ),
-              ),
+            _DormTagLeft(
+              imageUrl: 'assets/svgs/bunk_bed.svg',
+              tag: 'Bunk Bed',
             ),
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svgs/washing_machine.svg',
-                      semanticsLabel: 'Washing Machine',
-                    ),
-                    const SizedBox(width: 11),
-                    const Text('Washing Machine'),
-                  ],
-                ),
-              ),
-            ),
+            _DormTagRight(
+              imageUrl: 'assets/svgs/washing_machine.svg',
+              tag: 'Washing Machine',
+            )
           ],
         ),
-        TableRow(
+        const TableRow(
           children: [
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/svgs/desk.svg',
-                        semanticsLabel: 'Desk',
-                      ),
-                      const SizedBox(width: 11),
-                      const Text('Desk'),
-                    ],
-                  ),
-                ),
-              ),
+            _DormTagLeft(
+              imageUrl: 'assets/svgs/desk.svg',
+              tag: 'Desk',
             ),
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svgs/gym.svg',
-                      semanticsLabel: 'gym',
-                    ),
-                    const SizedBox(width: 11),
-                    const Text('Gym'),
-                  ],
-                ),
-              ),
-            ),
+            _DormTagRight(
+              imageUrl: 'assets/svgs/gym.svg',
+              tag: 'Gym',
+            )
           ],
         ),
-        TableRow(
+        const TableRow(
           children: [
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/svgs/shared_bath.svg',
-                        semanticsLabel: 'Shared Bathroom',
-                      ),
-                      const SizedBox(width: 11),
-                      const Text('Shared Bath'),
-                    ],
-                  ),
-                ),
-              ),
+            _DormTagLeft(
+              imageUrl: 'assets/svgs/shared_bath.svg',
+              tag: 'Shared Bathroom',
             ),
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svgs/parking_space.svg',
-                      semanticsLabel: 'Parking Space',
-                    ),
-                    const SizedBox(width: 11),
-                    const Text('Parking Space'),
-                  ],
-                ),
-              ),
-            ),
+            _DormTagRight(
+              imageUrl: 'assets/svgs/parking_space.svg',
+              tag: 'Parking Space',
+            )
           ],
         ),
-        TableRow(
+        const TableRow(
           children: [
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/svgs/shared_kitchen.svg',
-                        semanticsLabel: 'Shared Kitchen',
-                      ),
-                      const SizedBox(width: 11),
-                      const Text('Shared Kitchen'),
-                    ],
-                  ),
-                ),
-              ),
+            _DormTagLeft(
+              imageUrl: 'assets/svgs/shared_kitchen.svg',
+              tag: 'Shared Kitchen',
             ),
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svgs/security_personnel.svg',
-                      semanticsLabel: 'Security Personnel',
-                    ),
-                    const SizedBox(width: 11),
-                    const Text('Security Personnel'),
-                  ],
-                ),
-              ),
-            ),
+            _DormTagRight(
+              imageUrl: 'assets/svgs/security_personnel.svg',
+              tag: 'Security Personnel',
+            )
           ],
         ),
-        TableRow(
+        const TableRow(
           children: [
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/svgs/refrigerator.svg',
-                        semanticsLabel: 'Refrigerator',
-                      ),
-                      const SizedBox(width: 11),
-                      const Text('Refrigerator'),
-                    ],
-                  ),
-                ),
-              ),
+            _DormTagLeft(
+              imageUrl: 'assets/svgs/refrigerator.svg',
+              tag: 'Refrigerator',
             ),
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svgs/surveillance_camera.svg',
-                      semanticsLabel: 'Surveillance Camera',
-                    ),
-                    const SizedBox(width: 11),
-                    const Text('Surveillance Camera'),
-                  ],
-                ),
-              ),
-            ),
+            _DormTagRight(
+              imageUrl: 'assets/svgs/surveillance_camera.svg',
+              tag: 'Surveillance Camera',
+            )
           ],
         ),
-        TableRow(
+        const TableRow(
           children: [
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/svgs/microwave.svg',
-                        semanticsLabel: 'Microwave',
-                      ),
-                      const SizedBox(width: 11),
-                      const Text('Microwave'),
-                    ],
-                  ),
-                ),
-              ),
+            _DormTagLeft(
+              imageUrl: 'assets/svgs/microwave.svg',
+              tag: 'Microwave',
             ),
-            TableCell(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svgs/rooftop_terrace.svg',
-                      semanticsLabel: 'Rooftop Terrace',
-                    ),
-                    const SizedBox(width: 11),
-                    const Text('Rooftop Terrace'),
-                  ],
-                ),
-              ),
-            ),
+            _DormTagRight(
+              imageUrl: 'assets/svgs/rooftop_terrace.svg',
+              tag: 'Rooftop terrace',
+            )
           ],
-        ),
+        )
       ],
+    );
+  }
+}
+
+class _DormTagRight extends StatelessWidget {
+  const _DormTagRight({
+    super.key,
+    required this.imageUrl,
+    required this.tag,
+  });
+
+  final String imageUrl;
+  final String tag;
+
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var currentDorm = appState.currentDorm;
+    return TableCell(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              imageUrl,
+              semanticsLabel: tag,
+              colorFilter: ColorFilter.mode(
+                const Color(0xFF474747)
+                    .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
+                BlendMode.srcIn,
+              ),
+            ),
+            const SizedBox(width: 11),
+            Text(
+              tag,
+              style: TextStyle(
+                color: Color(0xFF474747)
+                    .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DormTagLeft extends StatelessWidget {
+  const _DormTagLeft({
+    super.key,
+    required this.imageUrl,
+    required this.tag,
+  });
+
+  final String imageUrl;
+  final String tag;
+
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var currentDorm = appState.currentDorm;
+    return TableCell(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child: Row(
+            children: [
+              SvgPicture.asset(
+                imageUrl,
+                semanticsLabel: tag,
+                colorFilter: ColorFilter.mode(
+                  const Color(0xFF474747)
+                      .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
+                  BlendMode.srcIn,
+                ),
+              ),
+              const SizedBox(width: 11),
+              Text(
+                tag,
+                style: TextStyle(
+                  color: Color(0xFF474747)
+                      .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
