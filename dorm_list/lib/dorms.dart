@@ -5,7 +5,7 @@ class Dorm {
   final String address;
   final String rating;
   final String reviews;
-  bool bBool;
+  bool bBool = true;
   final List<String> tags;
 
   Dorm(this.imageUrl, this.name, this.price, this.address, this.rating,
