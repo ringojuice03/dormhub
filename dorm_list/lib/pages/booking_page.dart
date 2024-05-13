@@ -10,6 +10,8 @@ summary of billing along with the payment confirmation.
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dorm_list/main.dart';
+import 'package:provider/provider.dart';
 
 class ConditionalTextWidget extends StatelessWidget {
   final List<bool> monthsActive;
@@ -93,6 +95,8 @@ class BookingPageState extends State<BookingPage> {
   //main widget
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var currentDorm = appState.currentDorm;
     return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -116,7 +120,7 @@ class BookingPageState extends State<BookingPage> {
                         borderRadius: BorderRadius.circular(20),
                         child: SizedBox.fromSize(
                           child: Image.asset(
-                            'assets/images/boarding_house1.jpg',
+                            currentDorm.imageUrl,
                             height: 150,
                             width: 225,
                             fit: BoxFit.fill,
@@ -131,12 +135,21 @@ class BookingPageState extends State<BookingPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Bedspacer#1',
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w700),
+                          currentDorm.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontWeight: FontWeight.w700),
                         ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(0, 8, 10, 8),
                           child: AutoSizeText(
+                            currentDorm.address,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                    color: Color.fromARGB(255, 145, 145, 145)),
                             '1234 Diaz St., Sta. Cruz',
                             style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromARGB(255, 145, 145, 145)),
                           ),
@@ -147,7 +160,6 @@ class BookingPageState extends State<BookingPage> {
                               'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                               style: Theme.of(context).textTheme.bodySmall),
                         ),
-                        
                       ],
                     ),
                   )
@@ -167,8 +179,7 @@ class BookingPageState extends State<BookingPage> {
                   children: [
                     Text(
                       'Guest Registration',
-                      style:
-                          Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 10),
                     Row(
@@ -798,8 +809,10 @@ class BookingPageState extends State<BookingPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('1 month advance 2 month deposit', style: Theme.of(context).textTheme.bodyMedium),
-                            Text('₱ 4,500.00', style: Theme.of(context).textTheme.bodyMedium),
+                            Text('1 month advance 2 month deposit',
+                                style: Theme.of(context).textTheme.bodyMedium),
+                            Text('₱ 4,500.00',
+                                style: Theme.of(context).textTheme.bodyMedium),
                           ],
                         ),
                         Text(
@@ -809,7 +822,12 @@ class BookingPageState extends State<BookingPage> {
                         const SizedBox(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text('Miscellaneous', style: Theme.of(context).textTheme.bodyMedium), Text('₱ 500.00', style: Theme.of(context).textTheme.bodyMedium)],
+                          children: [
+                            Text('Miscellaneous',
+                                style: Theme.of(context).textTheme.bodyMedium),
+                            Text('₱ 500.00',
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
                         ),
                         const Divider(
                           height: 20,
@@ -820,7 +838,11 @@ class BookingPageState extends State<BookingPage> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text('Total', style: Theme.of(context).textTheme.bodyMedium), const Text('₱ 5,000.00')],
+                          children: [
+                            Text('Total',
+                                style: Theme.of(context).textTheme.bodyMedium),
+                            const Text('₱ 5,000.00')
+                          ],
                         ),
                         const SizedBox(height: 5),
                         Column(
@@ -831,7 +853,11 @@ class BookingPageState extends State<BookingPage> {
                               children: [
                                 Text(
                                   'Price Breakdown',
-                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(decoration: TextDecoration.underline),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          decoration: TextDecoration.underline),
                                 )
                               ],
                             )
@@ -922,7 +948,10 @@ class BookingPageState extends State<BookingPage> {
                       children: [
                         Text(
                           'More Options',
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(decoration: TextDecoration.underline),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(decoration: TextDecoration.underline),
                         )
                       ],
                     ),
@@ -965,7 +994,8 @@ class BookingPageState extends State<BookingPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text('I understood', style: Theme.of(context).textTheme.bodyMedium),
+                        Text('I understood',
+                            style: Theme.of(context).textTheme.bodyMedium),
                         const SizedBox(width: 5),
                         Switch(
                             value: light,
@@ -1016,16 +1046,21 @@ class BookingPageState extends State<BookingPage> {
                           data: ThemeData(canvasColor: Colors.white),
                           child: AlertDialog(
                             shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(11.0)),
                             ),
-
-                            title: Text('Congratulations!', style: Theme.of(context).textTheme.bodyLarge),
-                            content: Text('You have successfully rented this unit.', style: Theme.of(context).textTheme.bodyMedium),
+                            title: Text('Congratulations!',
+                                style: Theme.of(context).textTheme.bodyLarge),
+                            content: Text(
+                                'You have successfully rented this unit.',
+                                style: Theme.of(context).textTheme.bodyMedium),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () => Navigator.pop(context, 'OK'),
                                 child: const Text('OK'),
                                 style: ButtonStyle(
+                                  foregroundColor: MaterialStateProperty.all(
+                                      Color(0xFF474747)),
                                   foregroundColor: MaterialStateProperty.all(const Color(0xFF474747)),
                                 ),
                               ),
@@ -1043,7 +1078,10 @@ class BookingPageState extends State<BookingPage> {
                       ),
                       child: Text(
                         'Confirm',
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w600, fontSize: 16),
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: const Color(0xFFFFFFFF),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16),
                       ),
                     ),
                   ],

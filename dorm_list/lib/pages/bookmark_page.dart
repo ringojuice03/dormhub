@@ -29,10 +29,6 @@ class _BookmarkPageState extends State<BookmarkPage> {
                 return DormUnit(
                   dorm: favorites[index],
                   index: index,
-                  dormImage: favorites[index].imageUrl,
-                  dormName: favorites[index].name,
-                  dormPrice: favorites[index].price,
-                  bookmarkMsg: 'Removed from bookmarks',
                 );
               },
             ),
