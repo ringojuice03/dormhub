@@ -43,58 +43,21 @@ class _MyHomePageState extends State<DormDetailPage>
               endIndent: 27,
             ),
             const SizedBox(height: 18),
-            Container(
-              // Dorm offers
-              child: TabBar(
-                controller: _tabController,
-                indicatorColor: const Color(0xFF474747),
-                labelColor: const Color(0xFF474747),
-                unselectedLabelColor: const Color(0xFF8C8C8C),
-                overlayColor:
-                    MaterialStateProperty.all<Color>(Colors.transparent),
-                tabs: [
-                  Tab(
-                    child: Row(
-                      children: [
-                        Icon(Icons.camera_alt),
-                        SizedBox(width: 7),
-                        AutoSizeText('Amenities',
-                            style: Theme.of(context).textTheme.bodySmall),
-                      ],
-                    ),
-                  ),
-                  Tab(
-                    child: Row(
-                      children: [
-                        Icon(Icons.bolt),
-                        SizedBox(width: 7),
-                        AutoSizeText('Inclusions',
-                            style: Theme.of(context).textTheme.bodySmall),
-                      ],
-                    ),
-                  ),
-                  Tab(
-                    child: Row(
-                      children: [
-                        Icon(Icons.edit_note_rounded),
-                        SizedBox(width: 7),
-                        AutoSizeText('Policies',
-                            style: Theme.of(context).textTheme.bodySmall),
-                      ],
-                    ),
             TabBar(
               controller: _tabController,
               indicatorColor: const Color(0xFF474747),
-              labelColor:  const Color(0xFF474747),
+              labelColor: const Color(0xFF474747),
               unselectedLabelColor: const Color(0xFF8C8C8C),
-              overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+              overlayColor:
+                  MaterialStateProperty.all<Color>(Colors.transparent),
               tabs: [
                 Tab(
                   child: Row(
                     children: [
                       const Icon(Icons.camera_alt),
                       const SizedBox(width: 7),
-                      AutoSizeText('Amenities', style: Theme.of(context).textTheme.bodySmall),
+                      AutoSizeText('Amenities',
+                          style: Theme.of(context).textTheme.bodySmall),
                     ],
                   ),
                 ),
@@ -103,7 +66,8 @@ class _MyHomePageState extends State<DormDetailPage>
                     children: [
                       const Icon(Icons.bolt),
                       const SizedBox(width: 7),
-                      AutoSizeText('Inclusions', style: Theme.of(context).textTheme.bodySmall),
+                      AutoSizeText('Inclusions',
+                          style: Theme.of(context).textTheme.bodySmall),
                     ],
                   ),
                 ),
@@ -112,7 +76,8 @@ class _MyHomePageState extends State<DormDetailPage>
                     children: [
                       const Icon(Icons.edit_note_rounded),
                       const SizedBox(width: 7),
-                      AutoSizeText('Policies', style: Theme.of(context).textTheme.bodySmall),
+                      AutoSizeText('Policies',
+                          style: Theme.of(context).textTheme.bodySmall),
                     ],
                   ),
                 ),
@@ -212,7 +177,7 @@ class Checkout extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(currentDorm.price, style: TextStyle(fontSize: 15)),
+                Text('₱${currentDorm.price}', style: TextStyle(fontSize: 15)),
                 Text('Base rent', style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
@@ -231,10 +196,9 @@ class Checkout extends StatelessWidget {
               },
               child: Text('Check Availability',
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: Color(0xFFFFFFFF),
+                      color: const Color(0xFFFFFFFF),
                       fontWeight: FontWeight.w600,
                       fontSize: 16)),
-              child: Text('Check Availability', style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: const Color(0xFFFFFFFF), fontWeight: FontWeight.w600, fontSize: 16)),
             ),
           ],
         ),
@@ -264,11 +228,9 @@ class Reviews extends StatelessWidget {
               'assets/svgs/ratings_stars.svg',
               semanticsLabel: 'Ratings',
             ),
-            SizedBox(width: 3),
+            const SizedBox(width: 3),
             Text('based on 285 reviews',
                 style: Theme.of(context).textTheme.bodyMedium),
-            const SizedBox(width: 3),
-            Text('based on 285 reviews', style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
         const SizedBox(height: 20),
@@ -306,8 +268,6 @@ class Map extends StatelessWidget {
       children: [
         Text('You\'ll be staying here.',
             style: Theme.of(context).textTheme.bodyMedium),
-        SizedBox(height: 18),
-        Text('You\'ll be staying here.', style: Theme.of(context).textTheme.bodyMedium),
         const SizedBox(height: 18),
         Container(
           width: 359,
@@ -366,7 +326,9 @@ class OwnerContact extends StatelessWidget {
                   backgroundColor: Color(0xFF474747),
                   radius: 26,
                 ),
-                const SizedBox(width: 15,),
+                const SizedBox(
+                  width: 15,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -418,11 +380,9 @@ class Header extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(Icons.star),
+                const Icon(Icons.star),
                 Text('${currentDorm.rating} of ${currentDorm.reviews} Reviews',
                     style: Theme.of(context).textTheme.bodyMedium),
-                const Icon(Icons.star),
-                Text('4.8 of 285 Reviews', style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           ],

@@ -202,8 +202,8 @@ class NavigationDrawer extends StatelessWidget {
           ),
           //similar to a button
           Padding(
-            padding:
-                const EdgeInsets.only(left: 5), // Add 30 pixels of space to the left
+            padding: const EdgeInsets.only(
+                left: 5), // Add 30 pixels of space to the left
             child: Column(
               children: [
                 ListTile(
@@ -352,7 +352,7 @@ class DormUnit extends StatelessWidget {
                             .textTheme
                             .bodyMedium!
                             .copyWith(fontWeight: FontWeight.w700)),
-                    const Row(
+                    Row(
                       children: [
                         Text(dorm.rating),
                         SizedBox(width: 5),

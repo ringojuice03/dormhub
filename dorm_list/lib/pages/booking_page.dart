@@ -149,9 +149,8 @@ class BookingPageState extends State<BookingPage> {
                                 .textTheme
                                 .bodySmall!
                                 .copyWith(
-                                    color: Color.fromARGB(255, 145, 145, 145)),
-                            '1234 Diaz St., Sta. Cruz',
-                            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: const Color.fromARGB(255, 145, 145, 145)),
+                                    color: const Color.fromARGB(
+                                        255, 145, 145, 145)),
                           ),
                         ),
                         Padding(
@@ -841,7 +840,7 @@ class BookingPageState extends State<BookingPage> {
                           children: [
                             Text('Total',
                                 style: Theme.of(context).textTheme.bodyMedium),
-                            const Text('₱ 5,000.00')
+                            Text(currentDorm.price)
                           ],
                         ),
                         const SizedBox(height: 5),
@@ -1025,8 +1024,8 @@ class BookingPageState extends State<BookingPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          '₱ 5,000.00',
+                        Text(
+                          ('₱ ' + currentDorm.price),
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
@@ -1060,8 +1059,7 @@ class BookingPageState extends State<BookingPage> {
                                 child: const Text('OK'),
                                 style: ButtonStyle(
                                   foregroundColor: MaterialStateProperty.all(
-                                      Color(0xFF474747)),
-                                  foregroundColor: MaterialStateProperty.all(const Color(0xFF474747)),
+                                      const Color(0xFF474747)),
                                 ),
                               ),
                             ],
