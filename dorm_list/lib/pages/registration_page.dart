@@ -16,7 +16,8 @@ class _RegistrationState extends State<Registration> {
   final _picker = ImagePicker();
 
   Future<void> _selectFromGallery() async {
-    final XFile? pickedImage = await _picker.pickImage(source: ImageSource.gallery);
+    final XFile? pickedImage =
+        await _picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         _image = File(pickedImage.path);
@@ -51,7 +52,11 @@ class _RegistrationState extends State<Registration> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // sign up
-                Text('Sign up', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w800, fontSize: 48)),
+                Text('Sign up',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.w800, fontSize: 48)),
                 const SizedBox(height: 34),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,42 +70,42 @@ class _RegistrationState extends State<Registration> {
                         ],
                       ),
                     ),
-                
+
                     // first name
                     RegistrationTextField(
-                      hintText: 'First Name', 
-                      controller: firstNameController, 
+                      hintText: 'First Name',
+                      controller: firstNameController,
                       obscureText: false,
                     ),
-                    
+
                     // surname
                     RegistrationTextField(
-                      hintText: 'Surname', 
-                      controller: surnameController, 
+                      hintText: 'Surname',
+                      controller: surnameController,
                       obscureText: false,
                     ),
-                    
+
                     // username
                     RegistrationTextField(
-                      hintText: 'Username', 
-                      controller: usernameController, 
+                      hintText: 'Username',
+                      controller: usernameController,
                       obscureText: false,
                     ),
-                
+
                     // password
                     RegistrationTextField(
-                      hintText: 'Password', 
-                      controller: passwordController, 
+                      hintText: 'Password',
+                      controller: passwordController,
                       obscureText: true,
                     ),
-                
+
                     // confirm password
                     RegistrationTextField(
-                      hintText: 'Confirm Password', 
-                      controller: confirmPasswordController, 
+                      hintText: 'Confirm Password',
+                      controller: confirmPasswordController,
                       obscureText: true,
                     ),
-                
+
                     // sign up button
                     const SizedBox(height: 30),
                     TextButton(
@@ -111,8 +116,15 @@ class _RegistrationState extends State<Registration> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {}, 
-                      child: Text('Sign up', style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.white, fontWeight: FontWeight.w300, fontSize: 18)),
+                      onPressed: () {},
+                      child: Text('Sign up',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 18)),
                     ),
 
                     // or
@@ -121,7 +133,8 @@ class _RegistrationState extends State<Registration> {
                       children: [
                         const Expanded(child: Divider()),
                         const SizedBox(width: 10),
-                        Text('or', style: Theme.of(context).textTheme.bodyMedium),
+                        Text('or',
+                            style: Theme.of(context).textTheme.bodyMedium),
                         const SizedBox(width: 10),
                         const Expanded(child: Divider()),
                       ],
@@ -137,13 +150,19 @@ class _RegistrationState extends State<Registration> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {}, 
+                      onPressed: () {},
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset('assets/svgs/google.svg'),
                           const SizedBox(width: 8.5),
-                          Text('Sign up with Google', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w300, fontSize: 18)),
+                          Text('Sign up with Google',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 18)),
                         ],
                       ),
                     ),
@@ -160,7 +179,8 @@ class _RegistrationState extends State<Registration> {
 
   Widget bottomSheet(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(10.0), // Adjust the border radius as needed
+      borderRadius:
+          BorderRadius.circular(10.0), // Adjust the border radius as needed
       elevation: 4.0,
       child: Container(
         height: 120.0,
@@ -169,7 +189,8 @@ class _RegistrationState extends State<Registration> {
         child: Column(
           children: [
             const SizedBox(height: 15),
-            Text('Choose profile photo', style: Theme.of(context).textTheme.bodyLarge),
+            Text('Choose profile photo',
+                style: Theme.of(context).textTheme.bodyLarge),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -179,15 +200,23 @@ class _RegistrationState extends State<Registration> {
                     _selectUsingCamera();
                   },
                   icon: const Icon(Icons.camera, color: Color(0xFF474747)),
-                  label: Text('Camera', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w800)),
+                  label: Text('Camera',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(fontWeight: FontWeight.w800)),
                 ),
                 TextButton.icon(
                   onPressed: () {
                     _selectFromGallery();
                   },
                   icon: const Icon(Icons.image, color: Color(0xFF474747)),
-                  label: Text('Gallery', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w800)),
-                ),  
+                  label: Text('Gallery',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(fontWeight: FontWeight.w800)),
+                ),
               ],
             ),
           ],
@@ -201,20 +230,26 @@ class _RegistrationState extends State<Registration> {
       children: [
         CircleAvatar(
           radius: 40,
-          backgroundImage: _image == null ? const AssetImage('assets/images/initial.png') as ImageProvider : FileImage(File(_image!.path)),
+          backgroundImage: _image == null
+              ? const AssetImage('assets/images/initial.png') as ImageProvider
+              : FileImage(File(_image!.path)),
         ),
         Positioned(
           bottom: -2.0,
           right: -2.0,
           child: InkWell(
-            borderRadius: BorderRadius.circular(40.0),
-            onTap: () {
-              showModalBottomSheet(
-                context: context, 
-                builder: ((builder) => bottomSheet(context)),
-              );
-            },
-            child: const Icon(Icons.add_circle, color: Color(0xFF474747), size: 30,)),
+              borderRadius: BorderRadius.circular(40.0),
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: ((builder) => bottomSheet(context)),
+                );
+              },
+              child: const Icon(
+                Icons.add_circle,
+                color: Color(0xFF474747),
+                size: 30,
+              )),
         ),
       ],
     );

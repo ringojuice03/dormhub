@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:dorm_list/pages/dormdetail_page.dart';
 import 'package:dorm_list/splash_screen.dart';
+import 'package:dorm_list/pages/registration_page.dart';
 import 'package:dorm_list/pages/home_page.dart';
 import 'package:dorm_list/pages/bookmark_page.dart';
 import 'package:dorm_list/pages/booking_page.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
           '/profile': (context) => const ProfilePage(),
           '/booking': (context) => const BookingPage(),
           '/noneyet': (context) => const Placeholder(),
+          '/registration': (context) => const Registration(),
         },
       ),
     );

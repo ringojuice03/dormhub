@@ -46,133 +46,135 @@ class _HomePageState extends State<HomePage> {
           ],
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(appState.preferredSize),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    //search bar
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 260,
-                        height: 50,
-                        decoration: BoxDecoration(
+            child: SafeArea(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //search bar
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: 260,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10.0)),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(width: 15),
+                              Icon(Icons.search),
+                              SizedBox(width: 10),
+                              Text('Search'),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      //filter button
+                      InkWell(
+                        onTap: () => setState(() {
+                          appState.toggleFilter();
+                        }),
+                        child: Container(
+                          width: 60,
+                          height: 50,
+                          decoration: BoxDecoration(
                             border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10.0)),
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(width: 15),
-                            Icon(Icons.search),
-                            SizedBox(width: 10),
-                            Text('Search'),
-                          ],
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: const Icon(Icons.flutter_dash),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 20),
-                    //filter button
-                    InkWell(
-                      onTap: () => setState(() {
-                        appState.toggleFilter();
+                    ],
+                  ),
+                  //filter choices
+                  if (appState.isFilterPressed) ...{
+                    Wrap(
+                      direction: Axis.horizontal,
+                      spacing: 10,
+                      alignment: WrapAlignment.center,
+                      children: List.generate(filterChips.length, (index) {
+                        return ChoiceChip(
+                          labelPadding: const EdgeInsets.all(0),
+                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          selectedColor: Colors.black.withOpacity(0.2),
+                          selected: filterBool[index],
+                          onSelected: (newBoolValue) {
+                            setState(() {
+                              filterBool[index] = newBoolValue;
+                              appState.pressedTag(filterChips[index]);
+                            });
+                          },
+                          label: Text(
+                            filterChips[index],
+                            style: const TextStyle(fontSize: 10),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          showCheckmark: false,
+                        );
                       }),
-                      child: Container(
-                        width: 60,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: const Icon(Icons.flutter_dash),
-                      ),
                     ),
-                  ],
-                ),
-                //filter choices
-                if (appState.isFilterPressed) ...{
-                  Wrap(
-                    direction: Axis.horizontal,
-                    spacing: 10,
-                    alignment: WrapAlignment.center,
-                    children: List.generate(filterChips.length, (index) {
-                      return ChoiceChip(
-                        labelPadding: const EdgeInsets.all(0),
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        selectedColor: Colors.black.withOpacity(0.2),
-                        selected: filterBool[index],
-                        onSelected: (newBoolValue) {
-                          setState(() {
-                            filterBool[index] = newBoolValue;
-                            appState.pressedTag(filterChips[index]);
-                          });
-                        },
-                        label: Text(
-                          filterChips[index],
-                          style: const TextStyle(fontSize: 10),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        showCheckmark: false,
-                      );
-                    }),
-                  ),
-                },
-                const SizedBox(height: 10),
-                //bottom tabs
-                Material(
-                  elevation: 0.5,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(
-                          color: appState.isFilterPressed
-                              ? Colors.black.withOpacity(0.2)
-                              : Colors.transparent,
+                  },
+                  const SizedBox(height: 10),
+                  //bottom tabs
+                  Material(
+                    elevation: 0.5,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(
+                            color: appState.isFilterPressed
+                                ? Colors.black.withOpacity(0.2)
+                                : Colors.transparent,
+                          ),
                         ),
                       ),
-                    ),
-                    child: TabBar(
-                      indicatorColor: const Color(0xFF474747),
-                      labelColor: const Color(0xFF474747),
-                      unselectedLabelColor: const Color(0xFF8C8C8C),
-                      overlayColor:
-                          MaterialStateProperty.all<Color>(Colors.transparent),
-                      labelPadding: EdgeInsets.zero,
-                      tabs: <Widget>[
-                        Tab(
-                          icon: const Icon(Icons.door_back_door),
-                          child: Text('Studio',
-                              style: Theme.of(context).textTheme.bodySmall),
-                        ),
-                        Tab(
-                          icon: const Icon(Icons.bed_rounded),
-                          child: Text('Bedspace',
-                              style: Theme.of(context).textTheme.bodySmall,
-                              overflow: TextOverflow.ellipsis),
-                        ),
-                        Tab(
-                          icon: const Icon(Icons.bed),
-                          child: Text('Single',
-                              style: Theme.of(context).textTheme.bodySmall),
-                        ),
-                        Tab(
-                          icon: const Icon(Icons.bedroom_child_sharp),
-                          child: Text('Efficiency',
-                              style: Theme.of(context).textTheme.bodySmall,
-                              overflow: TextOverflow.ellipsis),
-                        ),
-                        Tab(
-                          icon: const Icon(Icons.rounded_corner),
-                          child: Text('Pod',
-                              style: Theme.of(context).textTheme.bodySmall),
-                        ),
-                      ],
+                      child: TabBar(
+                        indicatorColor: const Color(0xFF474747),
+                        labelColor: const Color(0xFF474747),
+                        unselectedLabelColor: const Color(0xFF8C8C8C),
+                        overlayColor: MaterialStateProperty.all<Color>(
+                            Colors.transparent),
+                        labelPadding: EdgeInsets.zero,
+                        tabs: <Widget>[
+                          Tab(
+                            icon: const Icon(Icons.door_back_door),
+                            child: Text('Studio',
+                                style: Theme.of(context).textTheme.bodySmall),
+                          ),
+                          Tab(
+                            icon: const Icon(Icons.bed_rounded),
+                            child: Text('Bedspace',
+                                style: Theme.of(context).textTheme.bodySmall,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                          Tab(
+                            icon: const Icon(Icons.bed),
+                            child: Text('Single',
+                                style: Theme.of(context).textTheme.bodySmall),
+                          ),
+                          Tab(
+                            icon: const Icon(Icons.bedroom_child_sharp),
+                            child: Text('Efficiency',
+                                style: Theme.of(context).textTheme.bodySmall,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                          Tab(
+                            icon: const Icon(Icons.rounded_corner),
+                            child: Text('Pod',
+                                style: Theme.of(context).textTheme.bodySmall),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
