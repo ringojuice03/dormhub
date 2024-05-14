@@ -330,7 +330,7 @@ class DormUnit extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(height: 16),
-                      appState.bookmarkState
+                      appState.isBookmarked(dorm)
                           ? const Icon(Icons.bookmark, size: 40)
                           : const Opacity(
                               opacity: 0.5,

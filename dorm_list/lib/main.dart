@@ -74,7 +74,6 @@ class MyApp extends StatelessWidget {
 class MyAppState extends ChangeNotifier {
   double preferredSize = 125;
   bool filterState = false;
-  bool bookmarkState = false;
   String bookmarkMsg = '';
   var filterChips = <String>[
     "Bunk bed",
@@ -127,12 +126,14 @@ class MyAppState extends ChangeNotifier {
     if (favorites.contains(dorm)) {
       favorites.remove(dorm);
       bookmarkMsg = 'Removed from bookmarks';
-      bookmarkState = false;
     } else {
       favorites.add(dorm);
       bookmarkMsg = 'Added to bookmarks';
-      bookmarkState = true;
     }
     notifyListeners();
+  }
+
+  bool isBookmarked(dorm) {
+    return favorites.contains(dorm) ? true : false;
   }
 }
