@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:dorm_list/main.dart';
 import 'package:dorm_list/dorms.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,11 +38,14 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           shadowColor: Colors.black,
           actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.bookmark),
-              onPressed: () {
-                Navigator.pushNamed(context, '/bookmark');
-              },
+            Padding(
+              padding: const EdgeInsets.only(right: 18.0),
+              child: IconButton(
+                icon: const Icon(Icons.bookmark),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/bookmark');
+                },
+              ),
             ),
           ],
           bottom: PreferredSize(
@@ -72,26 +76,29 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 20),
+                      const SizedBox(width: 12),
                       //filter button
-                      InkWell(
-                        onTap: () => setState(() {
+                      ElevatedButton(
+                        onPressed: () => setState(() {
                           appState.toggleFilter();
                         }),
-                        child: Container(
-                          width: 60,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: const Icon(Icons.flutter_dash),
-                        ),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: appState.filterState
+                                ? const Color(0xFF474747)
+                                : Colors.white,
+                            foregroundColor: appState.filterState
+                                ? Colors.white
+                                : const Color(0xFF474747),
+                            minimumSize: const Size(58, 52),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(11),
+                            )),
+                        child: const Icon(Icons.filter_alt_rounded),
                       ),
                     ],
                   ),
                   //filter choices
-                  if (appState.isFilterPressed) ...{
+                  if (appState.filterState) ...{
                     Wrap(
                       direction: Axis.horizontal,
                       spacing: 10,
@@ -99,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                       children: List.generate(filterChips.length, (index) {
                         return ChoiceChip(
                           labelPadding: const EdgeInsets.all(0),
-                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
                           selectedColor: Colors.black.withOpacity(0.2),
                           selected: filterBool[index],
                           onSelected: (newBoolValue) {
@@ -128,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         border: Border(
                           top: BorderSide(
-                            color: appState.isFilterPressed
+                            color: appState.filterState
                                 ? Colors.black.withOpacity(0.2)
                                 : Colors.transparent,
                           ),
@@ -143,29 +150,30 @@ class _HomePageState extends State<HomePage> {
                         labelPadding: EdgeInsets.zero,
                         tabs: <Widget>[
                           Tab(
-                            icon: const Icon(Icons.door_back_door),
+                            icon: const Icon(Icons.sensor_door),
                             child: Text('Studio',
                                 style: Theme.of(context).textTheme.bodySmall),
                           ),
                           Tab(
-                            icon: const Icon(Icons.bed_rounded),
+                            icon: const Icon(Icons.bed),
                             child: Text('Bedspace',
                                 style: Theme.of(context).textTheme.bodySmall,
                                 overflow: TextOverflow.ellipsis),
                           ),
                           Tab(
-                            icon: const Icon(Icons.bed),
+                            icon:
+                                const Icon(Icons.airline_seat_individual_suite),
                             child: Text('Single',
                                 style: Theme.of(context).textTheme.bodySmall),
                           ),
                           Tab(
-                            icon: const Icon(Icons.bedroom_child_sharp),
-                            child: Text('Efficiency',
+                            icon: const Icon(Icons.chair),
+                            child: Text('Shared',
                                 style: Theme.of(context).textTheme.bodySmall,
                                 overflow: TextOverflow.ellipsis),
                           ),
                           Tab(
-                            icon: const Icon(Icons.rounded_corner),
+                            icon: const Icon(Icons.circle),
                             child: Text('Pod',
                                 style: Theme.of(context).textTheme.bodySmall),
                           ),
@@ -292,9 +300,7 @@ class DormUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
-    var snackBarMsg = SnackBar(
-      content: Text(appState.isFavorite(dorm)),
-    );
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(25, 12.5, 25, 12.5),
       child: Column(
@@ -317,10 +323,21 @@ class DormUnit extends StatelessWidget {
               child: ListTile(
                 trailing: GestureDetector(
                   onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(snackBarMsg);
                     appState.pressedFavorite(dorm);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(appState.bookmarkMsg)));
                   },
-                  child: const Icon(Icons.bookmark_border_outlined),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 16),
+                      appState.isBookmarked(dorm)
+                          ? const Icon(Icons.bookmark, size: 40)
+                          : const Opacity(
+                              opacity: 0.5,
+                              child: Icon(Icons.bookmark_border_outlined,
+                                  size: 40)),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -334,7 +351,7 @@ class DormUnit extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //dorm name
-                    Text('${dorm.name}',
+                    Text(dorm.name,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -349,7 +366,7 @@ class DormUnit extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     //price
-                    Text('₱${dorm.price}',
+                    Text('₱ ${dorm.price}',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -357,8 +374,8 @@ class DormUnit extends StatelessWidget {
                     Row(
                       children: [
                         Text(dorm.rating),
-                        SizedBox(width: 5),
-                        Icon(Icons.star, size: 18),
+                        const SizedBox(width: 5),
+                        const Icon(Icons.star, size: 18),
                       ],
                     ),
                   ],

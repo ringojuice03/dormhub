@@ -72,8 +72,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAppState extends ChangeNotifier {
-  bool isFilterPressed = false;
   double preferredSize = 125;
+  bool filterState = false;
+  String bookmarkMsg = '';
   var filterChips = <String>[
     "Bunk bed",
     "Desk",
@@ -103,7 +104,7 @@ class MyAppState extends ChangeNotifier {
   }
 
   void toggleFilter() {
-    isFilterPressed = !isFilterPressed;
+    filterState = !filterState;
     if (preferredSize == 125) {
       preferredSize = 175;
     } else {
@@ -124,15 +125,15 @@ class MyAppState extends ChangeNotifier {
   void pressedFavorite(dorm) {
     if (favorites.contains(dorm)) {
       favorites.remove(dorm);
+      bookmarkMsg = 'Removed from bookmarks';
     } else {
       favorites.add(dorm);
+      bookmarkMsg = 'Added to bookmarks';
     }
     notifyListeners();
   }
 
-  String isFavorite(dorm) {
-    return favorites.contains(dorm)
-        ? 'Removed from bookmarks'
-        : 'Added to bookmarks';
+  bool isBookmarked(dorm) {
+    return favorites.contains(dorm) ? true : false;
   }
 }
