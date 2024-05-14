@@ -20,8 +20,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool fBool = true;
-
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -58,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      //search bar 
+                      //search bar
                       InkWell(
                         onTap: () {},
                         child: Container(
@@ -82,23 +80,25 @@ class _HomePageState extends State<HomePage> {
                       //filter button
                       ElevatedButton(
                         onPressed: () => setState(() {
-                          fBool = !fBool;
                           appState.toggleFilter();
-                        }), 
+                        }),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: fBool ? Colors.white : const Color(0xFF474747),
-                          foregroundColor: fBool ? const Color(0xFF474747) : Colors.white,
-                          minimumSize: const Size(58, 52),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(11),
-                          )
-                        ),
+                            backgroundColor: appState.filterState
+                                ? const Color(0xFF474747)
+                                : Colors.white,
+                            foregroundColor: appState.filterState
+                                ? Colors.white
+                                : const Color(0xFF474747),
+                            minimumSize: const Size(58, 52),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(11),
+                            )),
                         child: const Icon(Icons.filter_alt_rounded),
                       ),
                     ],
                   ),
                   //filter choices
-                  if (appState.isFilterPressed) ... {
+                  if (appState.filterState) ...{
                     Wrap(
                       direction: Axis.horizontal,
                       spacing: 10,
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         border: Border(
                           top: BorderSide(
-                            color: appState.isFilterPressed
+                            color: appState.filterState
                                 ? Colors.black.withOpacity(0.2)
                                 : Colors.transparent,
                           ),
@@ -161,7 +161,8 @@ class _HomePageState extends State<HomePage> {
                                 overflow: TextOverflow.ellipsis),
                           ),
                           Tab(
-                            icon: const Icon(Icons.airline_seat_individual_suite),
+                            icon:
+                                const Icon(Icons.airline_seat_individual_suite),
                             child: Text('Single',
                                 style: Theme.of(context).textTheme.bodySmall),
                           ),
@@ -286,7 +287,7 @@ class ReturnTabBarView extends StatelessWidget {
 }
 
 //utility class for dorm units
-class DormUnit extends StatefulWidget {
+class DormUnit extends StatelessWidget {
   const DormUnit({
     super.key,
     required this.dorm,
@@ -297,23 +298,16 @@ class DormUnit extends StatefulWidget {
   final int index;
 
   @override
-  State<DormUnit> createState() => _DormUnitState();
-}
-
-class _DormUnitState extends State<DormUnit> {
-  @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
-    var snackBarMsg = SnackBar(
-      content: Text(appState.isFavorite(widget.dorm)),
-    );
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(25, 12.5, 25, 12.5),
       child: Column(
         children: [
           InkWell(
             onTap: () {
-              appState.currentDorm = widget.dorm;
+              appState.currentDorm = dorm;
               Navigator.pushNamed(context, '/dorm_detail');
             },
             child: Ink(
@@ -323,20 +317,25 @@ class _DormUnitState extends State<DormUnit> {
                 borderRadius: BorderRadius.circular(11),
                 image: DecorationImage(
                   //dorm image
-                  image: AssetImage(widget.dorm.imageUrl),
+                  image: AssetImage(dorm.imageUrl),
                 ),
               ),
               child: ListTile(
                 trailing: GestureDetector(
                   onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(snackBarMsg);
-                    appState.pressedFavorite(widget.dorm);
-                    widget.dorm.bBool = !widget.dorm.bBool;
+                    appState.pressedFavorite(dorm);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(appState.bookmarkMsg)));
                   },
                   child: Column(
                     children: [
                       SizedBox(height: 16),
-                      widget.dorm.bBool ? const Icon(Icons.bookmark, size: 40) : const Opacity(opacity: 0.5, child: Icon(Icons.bookmark_border_outlined, size: 40)),
+                      appState.bookmarkState
+                          ? const Icon(Icons.bookmark, size: 40)
+                          : const Opacity(
+                              opacity: 0.5,
+                              child: Icon(Icons.bookmark_border_outlined,
+                                  size: 40)),
                     ],
                   ),
                 ),
@@ -352,12 +351,12 @@ class _DormUnitState extends State<DormUnit> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //dorm name
-                    Text(widget.dorm.name,
+                    Text(dorm.name,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
                             .copyWith(fontWeight: FontWeight.w700)),
-                    Text('${widget.index + 1} beds available',
+                    Text('${index + 1} beds available',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.w700,
                             color: const Color.fromARGB(255, 160, 160, 160))),
@@ -367,14 +366,14 @@ class _DormUnitState extends State<DormUnit> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     //price
-                    Text('₱ ${widget.dorm.price}',
+                    Text('₱ ${dorm.price}',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
                             .copyWith(fontWeight: FontWeight.w700)),
                     Row(
                       children: [
-                        Text(widget.dorm.rating),
+                        Text(dorm.rating),
                         const SizedBox(width: 5),
                         const Icon(Icons.star, size: 18),
                       ],
