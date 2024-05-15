@@ -502,11 +502,11 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             _DormTagLeft(
               imageUrl: 'assets/svgs/bunk_bed.svg',
-              tag: 'Bunk Bed',
+              tag: 'Bunk bed',
             ),
             _DormTagRight(
               imageUrl: 'assets/svgs/washing_machine.svg',
-              tag: 'Washing Machine',
+              tag: 'Washing machine',
             )
           ],
         ),
@@ -526,11 +526,11 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             _DormTagLeft(
               imageUrl: 'assets/svgs/shared_bath.svg',
-              tag: 'Shared Bathroom',
+              tag: 'Bathroom',
             ),
             _DormTagRight(
               imageUrl: 'assets/svgs/parking_space.svg',
-              tag: 'Parking Space',
+              tag: 'Parking space',
             )
           ],
         ),
@@ -538,11 +538,11 @@ class AmenitiesTable extends StatelessWidget {
           children: [
             _DormTagLeft(
               imageUrl: 'assets/svgs/shared_kitchen.svg',
-              tag: 'Shared Kitchen',
+              tag: 'Kitchen',
             ),
             _DormTagRight(
               imageUrl: 'assets/svgs/aircon.svg',
-              tag: 'Air Conditioner',
+              tag: 'Air conditioner',
             )
           ],
         ),
@@ -554,7 +554,7 @@ class AmenitiesTable extends StatelessWidget {
             ),
             _DormTagRight(
               imageUrl: 'assets/svgs/surveillance_camera.svg',
-              tag: 'Surveillance Camera',
+              tag: 'Surveillance camera',
             )
           ],
         ),
