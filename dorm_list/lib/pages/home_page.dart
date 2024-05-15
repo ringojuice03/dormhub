@@ -99,33 +99,38 @@ class _HomePageState extends State<HomePage> {
                   ),
                   //filter choices
                   if (appState.filterState) ...{
-                    Wrap(
-                      direction: Axis.horizontal,
-                      spacing: 10,
-                      alignment: WrapAlignment.center,
-                      children: List.generate(filterChips.length, (index) {
-                        return ChoiceChip(
-                          labelPadding: const EdgeInsets.all(0),
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          selectedColor: Colors.black.withOpacity(0.2),
-                          selected: filterBool[index],
-                          onSelected: (newBoolValue) {
-                            setState(() {
-                              filterBool[index] = newBoolValue;
-                              appState.pressedTag(filterChips[index]);
-                            });
-                          },
-                          label: Text(
-                            filterChips[index],
-                            style: const TextStyle(fontSize: 10),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          showCheckmark: false,
-                        );
-                      }),
-                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.only(left: 15, right: 10),
+                      child: Wrap(
+                        direction: Axis.horizontal,
+                        spacing: 10,
+                        alignment: WrapAlignment.center,
+                        children: List.generate(filterChips.length, (index) {
+                          return ChoiceChip(
+                            labelPadding: const EdgeInsets.all(0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            selectedColor: Colors.black.withOpacity(0.2),
+                            selected: filterBool[index],
+                            onSelected: (newBoolValue) {
+                              setState(() {
+                                filterBool[index] = newBoolValue;
+                                appState.pressedTag(filterChips[index]);
+                              });
+                            },
+                            label: Text(
+                              filterChips[index],
+                              style: const TextStyle(fontSize: 10),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            showCheckmark: false,
+                          );
+                        }),
+                      ),
+                    )
                   },
                   const SizedBox(height: 10),
                   //bottom tabs
