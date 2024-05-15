@@ -51,7 +51,7 @@ List<Dorm> studios = [
     ['Bunk bed', 'Washing Machine'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/dorm3.jpg',
     'Emerald Suites',
     '8,500',
     '4321 Roxas Ave.',
@@ -60,7 +60,7 @@ List<Dorm> studios = [
     ['Refrigerator', 'Microwave', 'Parking space'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/dorm4.jpg',
     'Cypress Lodge',
     '7,500',
     '7890 Penafrancia Ave., San Francisco',
@@ -69,7 +69,7 @@ List<Dorm> studios = [
     ['Desk', 'Rooftop terrace'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/dorm5.jpg',
     'Maple Residences',
     '7,000',
     '1357 Elias Angeles St.',
@@ -81,7 +81,7 @@ List<Dorm> studios = [
 
 List<Dorm> bedspaces = [
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/bedspace1.jpg',
     'Lagoon Bedspaces',
     '3,000',
     '2468 Bagumbayan St.',
@@ -90,7 +90,7 @@ List<Dorm> bedspaces = [
     ['Refrigerator', 'Microwave', 'Gym'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/bedspace2.jpg',
     'Cove Living',
     '2,500',
     '8642 Abella St.',
@@ -99,7 +99,7 @@ List<Dorm> bedspaces = [
     ['Bunk bed', 'Air Conditioner'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/bedspace3.png',
     'Sunset Dwellings',
     '2,800',
     '1593 Igualdad St.',
@@ -108,7 +108,7 @@ List<Dorm> bedspaces = [
     ['Refrigerator', 'Microwave', 'Gym'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/bedspace4.jpg',
     'Pine Haven',
     '2,600',
     '7531 Queborac Dr.',
@@ -117,7 +117,7 @@ List<Dorm> bedspaces = [
     ['Bunk bed', 'Bathroom'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/bedspace5.jpg',
     'Jade Living',
     '2,700',
     '8642 Del Rosario St.',
@@ -129,7 +129,7 @@ List<Dorm> bedspaces = [
 
 List<Dorm> singles = [
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/single1.jpg',
     'Riverfront Singles',
     '12,500',
     '1593 Diversion Rd.',
@@ -138,7 +138,7 @@ List<Dorm> singles = [
     ['Refrigerator', 'Microwave', 'Gym'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/single2.jpg',
     'Green Fields',
     '5,500',
     '7531 Mayon Ave.',
@@ -147,7 +147,7 @@ List<Dorm> singles = [
     ['Bunk bed', 'Parking space'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/single3.jpg',
     'Harbor Suites',
     '9,000',
     '8642 Maharlika Hwy.',
@@ -156,7 +156,7 @@ List<Dorm> singles = [
     ['Refrigerator', 'Microwave', 'Washing Machine'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/single4.jpg',
     'Bamboo Grove',
     '6,000',
     '1593 San Felipe Rd.',
@@ -165,7 +165,7 @@ List<Dorm> singles = [
     ['Desk', 'Air Conditioner'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/single5.jpg',
     'Serenity Lodge',
     '6,200',
     '7531 Almeda Hwy.',
@@ -175,9 +175,10 @@ List<Dorm> singles = [
   ),
 ];
 
+
 List<Dorm> efficiencies = [
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/shared1.jpg',
     'Penafrancia Palace',
     '8,500',
     '8642 Penafrancia St.',
@@ -186,7 +187,7 @@ List<Dorm> efficiencies = [
     ['Refrigerator', 'Microwave', 'Gym', 'Air Conditioner'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/shared2.jpeg',
     'Jacob Junction',
     '3,000',
     '1593 Jacob St.',
@@ -195,7 +196,7 @@ List<Dorm> efficiencies = [
     ['Desk', 'Bathroom'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/shared3.png',
     'Washington Walk',
     '8,500',
     '7531 Washington Dr.',
@@ -204,7 +205,7 @@ List<Dorm> efficiencies = [
     ['Refrigerator', 'Microwave', 'Gym', 'Air Conditioner'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/shared4.png',
     'Blumentritt Bliss',
     '3,000',
     '8642 Blumentritt St.',
@@ -213,7 +214,7 @@ List<Dorm> efficiencies = [
     ['Desk', 'Bathroom'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/shared5.png',
     'Barlin Bay',
     '8,500',
     '1593 Barlin St.',
@@ -225,7 +226,7 @@ List<Dorm> efficiencies = [
 
 List<Dorm> pods = [
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/pod1.jpg',
     'Panganiban Pod',
     '4,000',
     '7531 Panganiban Dr',
@@ -234,7 +235,7 @@ List<Dorm> pods = [
     ['Refrigerator', 'Microwave', 'Bathroom'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/pod2.png',
     'Magsaysay Marvel',
     '3,000',
     '8642 Magsaysay Ave.',
@@ -243,7 +244,7 @@ List<Dorm> pods = [
     ['Desk', 'Bathroom'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/pod3.jpg',
     'Roxas Residence',
     '4,000',
     '1593 Roxas Ave.',
@@ -252,7 +253,7 @@ List<Dorm> pods = [
     ['Refrigerator', 'Microwave', 'Bathroom'],
   ),
   Dorm(
-    'assets/dorms/dorm2.png',
+    'assets/dorms/pod4.jpg',
     'Penafrancia Pod',
     '3,000',
     '7531 Penafrancia Ave.',
@@ -261,7 +262,7 @@ List<Dorm> pods = [
     ['Desk', 'Bathroom'],
   ),
   Dorm(
-    'assets/dorms/dorm1.png',
+    'assets/dorms/pod5.jpg',
     'Penafrancia Pod',
     '4,000',
     '7531 Penafrancia Ave.',
