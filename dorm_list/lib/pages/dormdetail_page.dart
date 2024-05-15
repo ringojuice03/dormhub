@@ -145,7 +145,7 @@ class DormImages extends StatelessWidget {
     return ClipRect(
       child: Align(
         alignment: Alignment.center,
-        heightFactor: 0.55,
+        heightFactor: 0.9,
         child: Image.asset(
           currentDorm.imageUrl,
           fit: BoxFit.cover,
