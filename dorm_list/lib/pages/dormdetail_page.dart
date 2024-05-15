@@ -541,8 +541,8 @@ class AmenitiesTable extends StatelessWidget {
               tag: 'Shared Kitchen',
             ),
             _DormTagRight(
-              imageUrl: 'assets/svgs/security_personnel.svg',
-              tag: 'Security Personnel',
+              imageUrl: 'assets/svgs/aircon.svg',
+              tag: 'Air Conditioner',
             )
           ],
         ),
