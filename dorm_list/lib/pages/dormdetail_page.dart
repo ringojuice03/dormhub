@@ -542,7 +542,7 @@ class AmenitiesTable extends StatelessWidget {
             ),
             _DormTagRight(
               imageUrl: 'assets/svgs/security_personnel.svg',
-              tag: 'Security Personnel',
+              tag: 'Aircon',
             )
           ],
         ),

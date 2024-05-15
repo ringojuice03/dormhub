@@ -78,9 +78,16 @@ class MyAppState extends ChangeNotifier {
   var filterChips = <String>[
     "Bunk bed",
     "Desk",
+    "Aircon",
     "Refrigerator",
     "Microwave",
-    "Gym"
+    "Washing Machine",
+    "Bathroom",
+    "Kitchen",
+    "Rooftop terrace",
+    "Parking space",
+    "Gym",
+    "Surveilance camera",
   ];
   Dorm currentDorm = studios[0];
   List<Dorm> filteredDorms = [];
