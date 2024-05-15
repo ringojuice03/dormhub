@@ -323,6 +323,7 @@ class DormUnit extends StatelessWidget {
                 image: DecorationImage(
                   //dorm image
                   image: AssetImage(dorm.imageUrl),
+                  fit: BoxFit.cover,
                 ),
               ),
               child: ListTile(
