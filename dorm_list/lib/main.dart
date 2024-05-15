@@ -78,7 +78,7 @@ class MyAppState extends ChangeNotifier {
   var filterChips = <String>[
     "Bunk bed",
     "Desk",
-    "Aircon",
+    "Air Conditioner",
     "Refrigerator",
     "Microwave",
     "Washing Machine",
