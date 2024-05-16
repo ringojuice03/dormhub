@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "476998983836",
+    "project_id": "kingkane-dhub",
+    "storage_bucket": "kingkane-dhub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476998983836:android:4d07fb13247d9fb5cecd59",
+        "android_client_info": {
+          "package_name": "com.example.booking_page"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvdH5fu8_UIXCMCezdDh_JzROyjVG7uM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476998983836:android:6fa0e9acc20ac45ccecd59",
+        "android_client_info": {
+          "package_name": "com.example.dorm_list"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvdH5fu8_UIXCMCezdDh_JzROyjVG7uM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

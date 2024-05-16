@@ -1,4 +1,7 @@
 import 'package:dorm_list/dorms.dart';
+import 'package:dorm_list/pages/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:dorm_list/pages/dormdetail_page.dart';
@@ -11,7 +14,14 @@ import 'package:dorm_list/pages/profile_page.dart';
 import 'package:dorm_list/pages/dormdetail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  if(kIsWeb) {
+    await Firebase.initializeApp(options: FirebaseOptions(apiKey: "AIzaSyC18ITJIcmxMDNNr3CQifgDxF-P9EG_G-o", appId: "1:476998983836:web:08a91b5675b74abfcecd59", messagingSenderId: "476998983836", projectId: "kingkane-dhub"));
+  }
+  else {
+    await Firebase.initializeApp();
+  }
   runApp(MyApp());
 }
 
@@ -55,7 +65,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home: const SplashScreen(
+          child: Login_Page(),
+        ),
         //used to navigate between pages
         routes: {
           '/homepage': (context) => const HomePage(),
@@ -65,6 +77,7 @@ class MyApp extends StatelessWidget {
           '/booking': (context) => const BookingPage(),
           '/noneyet': (context) => const Placeholder(),
           '/registration': (context) => const Registration(),
+          '/login': (context) => const Login_Page(),
         },
       ),
     );
