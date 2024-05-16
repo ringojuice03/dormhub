@@ -1,6 +1,13 @@
 import 'package:dorm_list/components/registration_textfield.dart';
+import 'package:dorm_list/firebase_auth_implementation/firebase_auth_services.dart';
+import 'package:dorm_list/firebase_auth_implementation/user_model.dart';
+import 'package:dorm_list/firebase_auth_implementation/user_repository.dart';
+import 'package:dorm_list/global/common/toast.dart';
+import 'package:dorm_list/pages/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -13,6 +20,8 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
   File? _image;
+  bool _isSigning = false;
+  final FirebaseAuthService _auth = FirebaseAuthService();
   final _picker = ImagePicker();
 
   Future<void> _selectFromGallery() async {
@@ -37,6 +46,7 @@ class _RegistrationState extends State<Registration> {
   final firstNameController = TextEditingController();
   final surnameController = TextEditingController();
   final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
@@ -92,6 +102,13 @@ class _RegistrationState extends State<Registration> {
                       obscureText: false,
                     ),
 
+                    // email
+                    RegistrationTextField(
+                      hintText: 'Email',
+                      controller: emailController,
+                      obscureText: false,
+                    ),
+
                     // password
                     RegistrationTextField(
                       hintText: 'Password',
@@ -116,15 +133,21 @@ class _RegistrationState extends State<Registration> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {},
-                      child: Text('Sign up',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 18)),
+                      onPressed: () {
+                        _signUp();
+                      },
+                      child: Center(
+                        child: _isSigning ? 
+                        SizedBox(height: 20, width: 20,child: CircularProgressIndicator(color: Colors.white,)) :
+                        Text('Sign up',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 18)),
+                      ),
                     ),
 
                     // or
@@ -166,7 +189,28 @@ class _RegistrationState extends State<Registration> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 77),
+                    const SizedBox(height: 30),
+                    // SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Already have an account?", style: Theme.of(context).textTheme.bodyMedium),
+                        SizedBox(width: 5,),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Login_Page()), (route) => false);
+                          },
+                          child: Text('Login', 
+                            style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 15)),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 77)
                   ],
                 ),
               ],
@@ -253,5 +297,33 @@ class _RegistrationState extends State<Registration> {
         ),
       ],
     );
+  }
+  void _signUp() async {
+    setState(() {
+      _isSigning = true;
+    });
+
+    // String username = usernameController.text;
+    // String email = emailController.text;
+    // String password = passwordController.text;
+    // String firstname = firstNameController.text;
+    // String surname = surnameController.text;
+
+    final user = UserModel(
+      firstname: firstNameController.text,
+      surname: surnameController.text,
+      username: usernameController.text,
+      email: emailController.text,
+      password: passwordController.text,
+
+    );
+
+    await _auth.createUser(user);
+    
+    setState(() {
+      _isSigning = false;
+    });
+
+    Navigator.pushNamed(context, "/login");
   }
 }
