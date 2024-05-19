@@ -18,92 +18,95 @@ class ProfilePage extends StatelessWidget {
         centerTitle: true,
         title: const Text('My Profile'),
       ),
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.93,
-          child: const Column(
-            children: [
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage('assets/images/cutie.jpg'),
-                      ),
-                      SizedBox(width: 20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Hanni Pham',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          Row(
-                            children: [
-                              Text('Verified'),
-                              SizedBox(width: 3),
-                              Icon(Icons.check_circle, size: 12),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Icon(Icons.keyboard_arrow_right, size: 27.5),
-                ],
-              ),
-              Divider(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  AvatarSubtitle(
-                      icon: Icons.line_axis, title: '2 dorms rented'),
-                  AvatarSubtitle(
-                      icon: Icons.home, title: '2.3 yrs longest stay'),
-                  AvatarSubtitle(
-                      icon: Icons.thumb_up, title: '11/10 reputation'),
-                ],
-              ),
-              ProfileTileHeader(title: 'Menu'),
-              //one tile
-              ProfileTile(
-                icon: Icons.person,
-                title: 'Personal Information',
-              ),
-              ProfileTile(
-                icon: Icons.money,
-                title: 'Payment',
-              ),
-              ProfileTile(
-                icon: Icons.shape_line_sharp,
-                title: 'Preferences',
-              ),
-              ProfileTile(
-                icon: Icons.bookmark,
-                title: 'Bookmarks',
-              ),
-              ProfileTile(
-                icon: Icons.person_pin_rounded,
-                title: 'Verification',
-              ),
-              ProfileTile(
-                icon: Icons.history,
-                title: 'History & Activity',
-              ),
-              ProfileTile(
-                  icon: Icons.messenger_outlined, title: 'Review & Ratings'),
-              ProfileTile(
-                icon: Icons.settings,
-                title: 'Settings',
-              ),
-              ProfileTile(icon: Icons.question_mark, title: 'Help & Support'),
-              ProfileTileHeader(title: 'Hosting'),
-              ProfileTile(
-                  icon: Icons.person_2_outlined, title: 'Become a Host'),
-            ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.93,
+            child: const Column(
+              children: [
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 40,
+                          backgroundImage:
+                              AssetImage('assets/images/cutie.jpg'),
+                        ),
+                        SizedBox(width: 20),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Hanni Pham',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            Row(
+                              children: [
+                                Text('Verified'),
+                                SizedBox(width: 3),
+                                Icon(Icons.check_circle, size: 12),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Icon(Icons.keyboard_arrow_right, size: 27.5),
+                  ],
+                ),
+                Divider(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AvatarSubtitle(
+                        icon: Icons.line_axis, title: '2 dorms rented'),
+                    AvatarSubtitle(
+                        icon: Icons.home, title: '2.3 yrs longest stay'),
+                    AvatarSubtitle(
+                        icon: Icons.thumb_up, title: '11/10 reputation'),
+                  ],
+                ),
+                ProfileTileHeader(title: 'Menu'),
+                //one tile
+                ProfileTile(
+                  icon: Icons.person,
+                  title: 'Personal Information',
+                ),
+                ProfileTile(
+                  icon: Icons.money,
+                  title: 'Payment',
+                ),
+                ProfileTile(
+                  icon: Icons.shape_line_sharp,
+                  title: 'Preferences',
+                ),
+                ProfileTile(
+                  icon: Icons.bookmark,
+                  title: 'Bookmarks',
+                ),
+                ProfileTile(
+                  icon: Icons.person_pin_rounded,
+                  title: 'Verification',
+                ),
+                ProfileTile(
+                  icon: Icons.history,
+                  title: 'History & Activity',
+                ),
+                ProfileTile(
+                    icon: Icons.messenger_outlined, title: 'Review & Ratings'),
+                ProfileTile(
+                  icon: Icons.settings,
+                  title: 'Settings',
+                ),
+                ProfileTile(icon: Icons.question_mark, title: 'Help & Support'),
+                ProfileTileHeader(title: 'Hosting'),
+                ProfileTile(
+                    icon: Icons.person_2_outlined, title: 'Become a Host'),
+              ],
+            ),
           ),
         ),
       ),

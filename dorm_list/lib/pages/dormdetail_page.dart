@@ -143,13 +143,40 @@ class DormImages extends StatelessWidget {
     var appState = context.watch<MyAppState>();
     var currentDorm = appState.currentDorm;
     return ClipRect(
-      child: Align(
-        alignment: Alignment.center,
-        heightFactor: 0.9,
-        child: Image.asset(
-          currentDorm.imageUrl,
-          fit: BoxFit.cover,
-        ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.center,
+            heightFactor: 0.9,
+            child: Image.asset(
+              currentDorm.imageUrl,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            top: 30.0,
+            right: 30.0,
+            child: GestureDetector(
+              onTap: () {
+                appState.pressedFavorite(currentDorm);
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(appState.bookmarkMsg)));
+              },
+              child: appState.isBookmarked(currentDorm)
+                  ? const Icon(
+                      Icons.bookmark,
+                      size: 45,
+                    )
+                  : const Opacity(
+                      opacity: 0.75,
+                      child: Icon(
+                        Icons.bookmark_border_outlined,
+                        size: 45,
+                      ),
+                    ),
+            ),
+          ),
+        ],
       ),
     );
   }
