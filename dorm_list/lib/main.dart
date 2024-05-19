@@ -14,12 +14,16 @@ import 'package:dorm_list/pages/profile_page.dart';
 import 'package:dorm_list/pages/dormdetail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Future main() async{
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if(kIsWeb) {
-    await Firebase.initializeApp(options: FirebaseOptions(apiKey: "AIzaSyC18ITJIcmxMDNNr3CQifgDxF-P9EG_G-o", appId: "1:476998983836:web:08a91b5675b74abfcecd59", messagingSenderId: "476998983836", projectId: "kingkane-dhub"));
-  }
-  else {
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "AIzaSyC18ITJIcmxMDNNr3CQifgDxF-P9EG_G-o",
+            appId: "1:476998983836:web:08a91b5675b74abfcecd59",
+            messagingSenderId: "476998983836",
+            projectId: "kingkane-dhub"));
+  } else {
     await Firebase.initializeApp();
   }
   runApp(MyApp());
@@ -91,16 +95,16 @@ class MyAppState extends ChangeNotifier {
   var filterChips = <String>[
     "Bunk bed",
     "Desk",
-    "Air Conditioner",
+    "Air conditioner",
     "Refrigerator",
     "Microwave",
-    "Washing Machine",
+    "Washing machine",
     "Bathroom",
     "Kitchen",
     "Rooftop terrace",
     "Parking space",
     "Gym",
-    "Surveilance camera",
+    "Surveillance camera",
   ];
   Dorm currentDorm = studios[0];
   List<Dorm> filteredDorms = [];

@@ -11,18 +11,6 @@ class Dorm {
       this.reviews, this.tags);
 }
 
-// "Bunk bed",
-// "Desk",
-// "Air Conditioner",
-// "Refrigerator",
-// "Microwave",
-// "Washing Machine",
-// "Bathroom",
-// "Kitchen",
-// "Rooftop terrace",
-// "Parking space",
-// "Gym",
-// "Surveilance camera",
 List<List<Dorm>> dormList = [
   studios,
   bedspaces,
@@ -39,7 +27,7 @@ List<Dorm> studios = [
     '5678 Panganiban Dr.',
     '4.3',
     '120',
-    ['Desk', 'Air Conditioner', 'Bathroom', 'Kitchen'],
+    ['Desk', 'Air conditioner', 'Bathroom', 'Kitchen'],
   ),
   Dorm(
     'assets/dorms/dorm2.png',
@@ -48,7 +36,7 @@ List<Dorm> studios = [
     '1230 Magsaysay Ave.',
     '4.1',
     '98',
-    ['Bunk bed', 'Washing Machine'],
+    ['Bunk bed', 'Washing machine'],
   ),
   Dorm(
     'assets/dorms/dorm3.jpg',
@@ -96,7 +84,7 @@ List<Dorm> bedspaces = [
     '8642 Abella St.',
     '3.5',
     '40',
-    ['Bunk bed', 'Air Conditioner'],
+    ['Bunk bed', 'Air conditioner'],
   ),
   Dorm(
     'assets/dorms/bedspace3.png',
@@ -153,7 +141,7 @@ List<Dorm> singles = [
     '8642 Maharlika Hwy.',
     '4.1',
     '110',
-    ['Refrigerator', 'Microwave', 'Washing Machine'],
+    ['Refrigerator', 'Microwave', 'Washing machine'],
   ),
   Dorm(
     'assets/dorms/single4.jpg',
@@ -162,7 +150,7 @@ List<Dorm> singles = [
     '1593 San Felipe Rd.',
     '3.9',
     '70',
-    ['Desk', 'Air Conditioner'],
+    ['Desk', 'Air conditioner'],
   ),
   Dorm(
     'assets/dorms/single5.jpg',
@@ -175,7 +163,6 @@ List<Dorm> singles = [
   ),
 ];
 
-
 List<Dorm> efficiencies = [
   Dorm(
     'assets/dorms/shared1.jpg',
@@ -184,7 +171,7 @@ List<Dorm> efficiencies = [
     '8642 Penafrancia St.',
     '4.3',
     '210',
-    ['Refrigerator', 'Microwave', 'Gym', 'Air Conditioner'],
+    ['Refrigerator', 'Microwave', 'Gym', 'Air conditioner'],
   ),
   Dorm(
     'assets/dorms/shared2.jpeg',
@@ -202,7 +189,7 @@ List<Dorm> efficiencies = [
     '7531 Washington Dr.',
     '4.3',
     '220',
-    ['Refrigerator', 'Microwave', 'Gym', 'Air Conditioner'],
+    ['Refrigerator', 'Microwave', 'Gym', 'Air conditioner'],
   ),
   Dorm(
     'assets/dorms/shared4.png',
@@ -220,7 +207,7 @@ List<Dorm> efficiencies = [
     '1593 Barlin St.',
     '4.2',
     '215',
-    ['Refrigerator', 'Microwave', 'Gym', 'Air Conditioner'],
+    ['Refrigerator', 'Microwave', 'Gym', 'Air conditioner'],
   ),
 ];
 
