@@ -34,7 +34,7 @@ class _MyHomePageState extends State<DormDetailPage>
           children: [
             const DormImages(), // Image header
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 27.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
                 children: [
                   const SizedBox(height: 18),
@@ -193,22 +193,21 @@ class Checkout extends StatelessWidget {
     var currentDorm = appState.currentDorm;
     return Column(
       children: [
-        SvgPicture.asset(
-          'assets/svgs/horizontal.svg',
-          semanticsLabel: 'Horizontal',
+        const Divider(
+          height: 8,
+          thickness: 1,
         ),
         const SizedBox(height: 13),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('₱${currentDorm.price}', style: const TextStyle(fontSize: 15)),
+                Text('₱${currentDorm.price}', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)),
                 Text('Base rent', style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
-            const SizedBox(width: 92),
             TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: const Color(0xFF474747),
