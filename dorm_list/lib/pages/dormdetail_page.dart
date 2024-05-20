@@ -33,99 +33,99 @@ class _MyHomePageState extends State<DormDetailPage>
           // Align all widgets vertically
           children: [
             const DormImages(), // Image header
-            const SizedBox(height: 18),
-            const Header(), // Description header
-            const SizedBox(height: 18),
-            const Divider(
-              height: 8,
-              thickness: 1,
-              indent: 27,
-              endIndent: 27,
-            ),
-            const SizedBox(height: 18),
-            TabBar(
-              controller: _tabController,
-              indicatorColor: const Color(0xFF474747),
-              labelColor: const Color(0xFF474747),
-              unselectedLabelColor: const Color(0xFF8C8C8C),
-              overlayColor:
-                  MaterialStateProperty.all<Color>(Colors.transparent),
-              tabs: [
-                Tab(
-                  child: Row(
-                    children: [
-                      const Icon(Icons.camera_alt),
-                      const SizedBox(width: 7),
-                      AutoSizeText('Amenities',
-                          style: Theme.of(context).textTheme.bodySmall),
-                    ],
-                  ),
-                ),
-                Tab(
-                  child: Row(
-                    children: [
-                      const Icon(Icons.bolt),
-                      const SizedBox(width: 7),
-                      AutoSizeText('Inclusions',
-                          style: Theme.of(context).textTheme.bodySmall),
-                    ],
-                  ),
-                ),
-                Tab(
-                  child: Row(
-                    children: [
-                      const Icon(Icons.edit_note_rounded),
-                      const SizedBox(width: 7),
-                      AutoSizeText('Policies',
-                          style: Theme.of(context).textTheme.bodySmall),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              // Dorm offers contents
-              width: double.maxFinite,
-              height: 250,
-              child: TabBarView(
-                controller: _tabController,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 27.0),
+              child: Column(
                 children: [
-                  AmenitiesTable(),
-                  Text('Table here'),
-                  Text('Table here'),
+                  const SizedBox(height: 18),
+                  const Header(), // Description header
+                  const SizedBox(height: 18),
+                  const Divider(
+                    height: 8,
+                    thickness: 1,
+                  ),
+                  const SizedBox(height: 18),
+                  TabBar(
+                    controller: _tabController,
+                    indicatorColor: const Color(0xFF474747),
+                    labelColor: const Color(0xFF474747),
+                    unselectedLabelColor: const Color(0xFF8C8C8C),
+                    labelPadding: const EdgeInsets.symmetric(horizontal: 10),
+                    overlayColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
+                    tabs: [
+                      Tab(
+                        child: Row(
+                          children: [
+                            const Icon(Icons.camera_alt),
+                            const SizedBox(width: 7),
+                            AutoSizeText('Amenities',
+                                style: Theme.of(context).textTheme.bodySmall),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            const Icon(Icons.bolt),
+                            const SizedBox(width: 7),
+                            AutoSizeText('Inclusions',
+                                style: Theme.of(context).textTheme.bodySmall),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            const Icon(Icons.edit_note_rounded),
+                            const SizedBox(width: 7),
+                            AutoSizeText('Policies',
+                                style: Theme.of(context).textTheme.bodySmall),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    // Dorm offers contents
+                    width: double.maxFinite,
+                    height: 250,
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: [
+                        AmenitiesTable(),
+                        Text('Table here'),
+                        Text('Table here'),
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    height: 8,
+                    thickness: 1,
+                  ),
+                  const SizedBox(height: 18),
+                  const OwnerContact(), // Contact owner button
+                  const SizedBox(height: 18),
+                  const Divider(
+                    height: 8,
+                    thickness: 1,
+                  ),
+                  const SizedBox(height: 18),
+                  const Map(), // Map proximity container
+                  const SizedBox(height: 18),
+                  const Divider(
+                    height: 8,
+                    thickness: 1,
+                  ),
+                  const SizedBox(height: 18),
+                  Reviews(
+                      tabController: _tabController), // Reviews overview dashboard
+                  const Checkout(), // Proceed to billing
+                  const SizedBox(height: 33),
                 ],
               ),
             ),
-            const Divider(
-              height: 8,
-              thickness: 1,
-              indent: 27,
-              endIndent: 27,
-            ),
-            const SizedBox(height: 18),
-            const OwnerContact(), // Contact owner button
-            const SizedBox(height: 18),
-            const Divider(
-              height: 8,
-              thickness: 1,
-              indent: 27,
-              endIndent: 27,
-            ),
-            const SizedBox(height: 18),
-            const Map(), // Map proximity container
-            const SizedBox(height: 18),
-            const Divider(
-              height: 8,
-              thickness: 1,
-              indent: 27,
-              endIndent: 27,
-            ),
-            const SizedBox(height: 18),
-            Reviews(
-                tabController: _tabController), // Reviews overview dashboard
-            const Checkout(), // Proceed to billing
-            const SizedBox(height: 33),
           ],
         ),
       ),
@@ -204,7 +204,7 @@ class Checkout extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('₱${currentDorm.price}', style: TextStyle(fontSize: 15)),
+                Text('₱${currentDorm.price}', style: const TextStyle(fontSize: 15)),
                 Text('Base rent', style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
@@ -247,15 +247,15 @@ class Reviews extends StatelessWidget {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(width: 27),
             const Text('4.8'),
-            const SizedBox(width: 3),
+            const SizedBox(width: 6),
             SvgPicture.asset(
               'assets/svgs/ratings_stars.svg',
               semanticsLabel: 'Ratings',
             ),
-            const SizedBox(width: 3),
+            const SizedBox(width: 6),
             Text('based on 285 reviews',
                 style: Theme.of(context).textTheme.bodyMedium),
           ],
@@ -335,46 +335,43 @@ class OwnerContact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 27),
-        child: IntrinsicWidth(
-          child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: const Color(0xFF474747),
-              minimumSize: const Size(200, 85),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(11),
+      child: IntrinsicWidth(
+        child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: const Color(0xFF474747),
+            minimumSize: const Size(200, 85),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(11),
+            ),
+          ),
+          onPressed: () {},
+          child: Row(
+            children: [
+              const CircleAvatar(
+                backgroundColor: Color(0xFF474747),
+                radius: 26,
               ),
-            ),
-            onPressed: () {},
-            child: Row(
-              children: [
-                const CircleAvatar(
-                  backgroundColor: Color(0xFF474747),
-                  radius: 26,
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Larry Amet',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(fontWeight: FontWeight.w600)),
-                    Text('Hosting Since 2010',
-                        style: Theme.of(context).textTheme.bodyMedium),
-                    Text('Owner', style: Theme.of(context).textTheme.bodySmall),
-                  ],
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Icon(Icons.chat_bubble, size: 35),
-              ],
-            ),
+              const SizedBox(
+                width: 15,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Larry Amet',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(fontWeight: FontWeight.w600)),
+                  Text('Hosting Since 2010',
+                      style: Theme.of(context).textTheme.bodyMedium),
+                  Text('Owner', style: Theme.of(context).textTheme.bodySmall),
+                ],
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              const Icon(Icons.chat_bubble, size: 35),
+            ],
           ),
         ),
       ),
@@ -415,41 +412,35 @@ class Header extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 18),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 31),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              const Icon(Icons.bed),
-              AutoSizeText('Comfiy',
-                  style: Theme.of(context).textTheme.bodySmall,
-                  overflow: TextOverflow.ellipsis),
-              const Text('-'),
-              const Icon(Icons.bed),
-              AutoSizeText('Comfiy',
-                  style: Theme.of(context).textTheme.bodySmall,
-                  overflow: TextOverflow.ellipsis),
-              const Text('-'),
-              const Icon(Icons.bed),
-              AutoSizeText('Comfiy',
-                  style: Theme.of(context).textTheme.bodySmall,
-                  overflow: TextOverflow.ellipsis),
-              const Text('-'),
-              const Icon(Icons.bed),
-              AutoSizeText('Comfiy',
-                  style: Theme.of(context).textTheme.bodySmall,
-                  overflow: TextOverflow.ellipsis),
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const Icon(Icons.bed),
+            AutoSizeText('Comfiy',
+                style: Theme.of(context).textTheme.bodySmall,
+                overflow: TextOverflow.ellipsis),
+            const Text('-'),
+            const Icon(Icons.bed),
+            AutoSizeText('Comfiy',
+                style: Theme.of(context).textTheme.bodySmall,
+                overflow: TextOverflow.ellipsis),
+            const Text('-'),
+            const Icon(Icons.bed),
+            AutoSizeText('Comfiy',
+                style: Theme.of(context).textTheme.bodySmall,
+                overflow: TextOverflow.ellipsis),
+            const Text('-'),
+            const Icon(Icons.bed),
+            AutoSizeText('Comfiy',
+                style: Theme.of(context).textTheme.bodySmall,
+                overflow: TextOverflow.ellipsis),
+          ],
         ),
         const SizedBox(height: 18),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 27),
-          child: Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum dignissim, finibus elit a, commodo neque. Etiam id porta metus, in varius elit. Morbi efficitur purus vitae condimentum fringilla. Nullam aliquet dapibus sapien eget semper.',
-            textAlign: TextAlign.justify,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
+        Text(
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mi blandit, elementum libero a, varius neque. Praesent vel ipsum dignissim, finibus elit a, commodo neque. Etiam id porta metus, in varius elit. Morbi efficitur purus vitae condimentum fringilla. Nullam aliquet dapibus sapien eget semper.',
+          textAlign: TextAlign.justify,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ],
     );
@@ -466,30 +457,31 @@ class Review1 extends StatelessWidget {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(
-              width: 27,
-            ),
-            const CircleAvatar(
-              backgroundColor: Color(0xFF474747),
-              radius: 26,
-            ),
-            const SizedBox(width: 15),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
               children: [
-                Text('Jose Mari Chan',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontWeight: FontWeight.w700)),
-                Text('Past Resident',
-                    style: Theme.of(context).textTheme.bodyMedium),
-                Text('2010 - 2014',
-                    style: Theme.of(context).textTheme.bodyMedium),
+                const CircleAvatar(
+                  backgroundColor: Color(0xFF474747),
+                  radius: 26,
+                ),
+                const SizedBox(width: 10),
+                Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Jose Mari Chan',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(fontWeight: FontWeight.w700)),
+                  Text('Past Resident',
+                      style: Theme.of(context).textTheme.bodyMedium),
+                  Text('2010 - 2014',
+                      style: Theme.of(context).textTheme.bodyMedium),
+                ],
+              ),
               ],
             ),
-            const SizedBox(width: 89),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -617,29 +609,26 @@ class _DormTagRight extends StatelessWidget {
     var appState = context.watch<MyAppState>();
     var currentDorm = appState.currentDorm;
     return TableCell(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            SvgPicture.asset(
-              imageUrl,
-              semanticsLabel: tag,
-              colorFilter: ColorFilter.mode(
-                const Color(0xFF474747)
-                    .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
-                BlendMode.srcIn,
-              ),
+      child: Row(
+        children: [
+          SvgPicture.asset(
+            imageUrl,
+            semanticsLabel: tag,
+            colorFilter: ColorFilter.mode(
+              const Color(0xFF474747)
+                  .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
+              BlendMode.srcIn,
             ),
-            const SizedBox(width: 11),
-            Text(
-              tag,
-              style: TextStyle(
-                color: Color(0xFF474747)
-                    .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
-              ),
+          ),
+          const SizedBox(width: 11),
+          Text(
+            tag,
+            style: TextStyle(
+              color: Color(0xFF474747)
+                  .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -662,29 +651,26 @@ class _DormTagLeft extends StatelessWidget {
     return TableCell(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 30),
-          child: Row(
-            children: [
-              SvgPicture.asset(
-                imageUrl,
-                semanticsLabel: tag,
-                colorFilter: ColorFilter.mode(
-                  const Color(0xFF474747)
-                      .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
-                  BlendMode.srcIn,
-                ),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              imageUrl,
+              semanticsLabel: tag,
+              colorFilter: ColorFilter.mode(
+                const Color(0xFF474747)
+                    .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
+                BlendMode.srcIn,
               ),
-              const SizedBox(width: 11),
-              Text(
-                tag,
-                style: TextStyle(
-                  color: Color(0xFF474747)
-                      .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
-                ),
+            ),
+            const SizedBox(width: 11),
+            Text(
+              tag,
+              style: TextStyle(
+                color: Color(0xFF474747)
+                    .withOpacity(currentDorm.tags.contains(tag) ? 1 : 0.3),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
