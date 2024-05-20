@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dorm_list/components/registration_textfield.dart';
 import 'package:dorm_list/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:dorm_list/global/common/toast.dart';
@@ -87,7 +88,7 @@ class _Login_PageState extends State<Login_Page> {
                         ),
                       ),
                       onPressed: () {
-                        _signIn();
+                        _login();
                       },
                       child: Center(
                         child: _isSigning ? 
@@ -102,48 +103,7 @@ class _Login_PageState extends State<Login_Page> {
                                     fontSize: 18)),
                       ),
                     ),
-
-                    // // or
-                    // const SizedBox(height: 30),
-                    // Row(
-                    //   children: [
-                    //     const Expanded(child: Divider()),
-                    //     const SizedBox(width: 10),
-                    //     Text('or',
-                    //         style: Theme.of(context).textTheme.bodyMedium),
-                    //     const SizedBox(width: 10),
-                    //     const Expanded(child: Divider()),
-                    //   ],
-                    // ),
-                    // const SizedBox(height: 30),
-
-                    // // sign up with google
-                    // OutlinedButton(
-                    //   style: TextButton.styleFrom(
-                    //     backgroundColor: Colors.white,
-                    //     minimumSize: const Size(double.infinity, 60),
-                    //     shape: RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(15),
-                    //     ),
-                    //   ),
-                    //   onPressed: () {},
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.center,
-                    //     children: [
-                    //       SvgPicture.asset('assets/svgs/google.svg'),
-                    //       const SizedBox(width: 8.5),
-                    //       Text('Sign up with Google',
-                    //           style: Theme.of(context)
-                    //               .textTheme
-                    //               .bodyLarge!
-                    //               .copyWith(
-                    //                   fontWeight: FontWeight.w300,
-                    //                   fontSize: 18)),
-                    //     ],
-                    //   ),
-                    // ),
                     const SizedBox(height: 30),
-                    // SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -174,26 +134,30 @@ class _Login_PageState extends State<Login_Page> {
     );
   }
 
-  void _signIn() async {
+
+  void _login() async {
+
     setState(() {
       _isSigning = true;
     });
 
     String email = emailController.text;
     String password = passwordController.text;
+    final _db = FirebaseFirestore.instance;
+    CollectionReference users = _db.collection('Users');
 
-    User? user = await _auth.signInWithEmailAndPassword(email, password);
-    //print(user);
+    QuerySnapshot querySnapshot = await users.where('Email', isEqualTo: email).where('Password', isEqualTo: password).get();
     
     setState(() {
       _isSigning = false;
     });
 
-    if (user != null) {
+    if (querySnapshot.docs.isNotEmpty) {
       showToast(message: 'User is successfully signed in');
       Navigator.pushNamed(context, "/homepage");
-    } else {
-      //showToast(message: 'Login error');
+    }
+    else {
+      showToast(message: 'User not found');
     }
   }
 }
