@@ -391,7 +391,7 @@ class Header extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -403,10 +403,17 @@ class Header extends StatelessWidget {
               ],
             ),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.star),
-                Text('${currentDorm.rating} of ${currentDorm.reviews} Reviews',
-                    style: Theme.of(context).textTheme.bodyMedium),
+                const Icon(Icons.star, size: 19,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text('${currentDorm.rating} of ${currentDorm.reviews}',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text('Reviews', style: Theme.of(context).textTheme.bodyMedium),
+                  ],
+                ),
               ],
             ),
           ],
